@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CatagoryService } from '../share/services/catagory/catagory.service';
 
 @Component({
   selector: 'app-catagory',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatagoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private catagoryService: CatagoryService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    let x = this.catagoryService.gets().subscribe(res=>{
+       console.log(x)
+    })
+  }
 
 }

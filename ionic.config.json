@@ -1,5 +1,7 @@
 {
   "name": "discoverme",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
