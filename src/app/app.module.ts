@@ -13,6 +13,7 @@ import { CatagoryModule } from './catagory/catagory.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { httpInterceptProviders } from './share/intercept';
 import { HttpClientModule } from '@angular/common/http';
+import { NgMatModule } from './share/ngMat/ngMat.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [
     StatusBar,
