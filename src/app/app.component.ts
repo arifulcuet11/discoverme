@@ -27,5 +27,6 @@ export class AppComponent {
 
   catagory(){
     console.log("ok");
+    
   }
 }

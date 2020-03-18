@@ -14,6 +14,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { httpInterceptProviders } from './share/intercept';
 import { HttpClientModule } from '@angular/common/http';
 import { NgMatModule } from './share/ngMat/ngMat.module';
+import { ArrayFilterPipe } from './share/pipe/array-filter';
 
 @NgModule({
   declarations: [AppComponent],

@@ -8,11 +8,14 @@ import { RouterModule } from '@angular/router';
 import { NgMatModule } from '../share/ngMat/ngMat.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { SubCatagoryComponent } from './sub-catagory/sub-catagory.component';
+import { MatInputModule } from '@angular/material/input';
+import { ArrayFilterPipe } from '../share/pipe/array-filter';
 
 
 
 @NgModule({
-  declarations: [CatagoryComponent],
+  declarations: [CatagoryComponent, SubCatagoryComponent, ArrayFilterPipe],
   imports: [
     CommonModule,
     CatagoryRoutingModule,
@@ -20,7 +23,9 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     IonicModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule ,
+    MatInputModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
