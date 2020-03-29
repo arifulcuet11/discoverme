@@ -25,3 +25,32 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-form-field {
+    width: 100% !important;
+    display: block !important;
+    margin-top: 0.8em;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0px;
+  }
+  .mat-form-field-outline {
+    background: #fff !important;
+    border-radius: 5px;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    top: 0.1em !important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 5px 0 0.5em !important;
+    font-size: 14px !important;
+  }
+  .mat-form-field-infix {
+    height: 42px !important;
+  }
+  // input.mat-input-element {
+  //     margin-top: -.0625em;
+  // }
+  .mat-form-field .mat-form-field-label-wrapper {
+    top: -19px !important;
+  }

@@ -1,29 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header translucent>
   <ion-toolbar>
-    <ion-title>
-      CATAGORY
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Page Two</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <mat-form-field class="example-full-width" style="padding: 5px;">
+  <mat-form-field appearance="outline" class="example-full-width" style="padding: 5px;">
     <mat-label>Search</mat-label>
     <input matInput placeholder="Search" (keyup)="search($event)">
   </mat-form-field>
 
-  <div  *ngFor="let item of subcatagories | filter: 'name': text"  style="padding: 5px;" >
-      <mat-card class="example-card" >
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{item.name}}</mat-card-title>
-          <mat-card-subtitle>25 subcatagory</mat-card-subtitle>
-        </mat-card-header>
-        <img *ngIf="item.id===1" mat-card-image style="height:80px;;" src="./assets/images/joke.jpg">
-        <img *ngIf="item.id===3" mat-card-image style="height:80px;;" src="./assets/images/sms.png">
-        <img *ngIf="item.id===2" mat-card-image style="height:80px;;" src="./assets/images/short-story.jpg">
-        <img *ngIf="item.id===4" mat-card-image style="height:80px;;" src="./assets/images/other.png">
-      </mat-card>
+  <div *ngFor="let item of subcatagories | filter: 'name': text">
+    <ion-item>
+      <ion-avatar slot="start">
+        <span [ngStyle]="{'background-color': getRandomColor()}" class="dot">{{item.name.substring(0,4)}}</span>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.name}}</h2>
+        <h3>I'm a big deal</h3>
+        <p>Listen, I've had a pretty messed up day...</p>
+      </ion-label>
+    </ion-item>
     </div>
 
 </ion-content>

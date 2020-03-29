@@ -10,14 +10,13 @@
   <div [routerLink]="['/catagory/subcatagory', item.Id]" *ngFor="let item of catagories" style="padding: 10px;" >
       <mat-card class="example-card" >
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{item.Name}}</mat-card-title>
-          <mat-card-subtitle>25 subcatagory</mat-card-subtitle>
+          <mat-card-title class="text-center">{{item.Name}}</mat-card-title>
+          <mat-card-subtitle class="text-center">25 subcatagory</mat-card-subtitle>
         </mat-card-header>
-        <img *ngIf="item.Id===1" mat-card-image style="height:100px;;" src="./assets/images/joke.jpg">
-        <img *ngIf="item.Id===3" mat-card-image style="height:100px;;" src="./assets/images/sms.png">
-        <img *ngIf="item.Id===2" mat-card-image style="height:100px;;" src="./assets/images/short-story.jpg">
-        <img *ngIf="item.Id===4" mat-card-image style="height:100px;;" src="./assets/images/other.png">
+        <img *ngIf="item.Id===1" class="title-img" mat-card-image  src="./assets/images/joke.jpg">
+        <img *ngIf="item.Id===3"  class="title-img" mat-card-image  src="./assets/images/sms.png">
+        <img *ngIf="item.Id===2"  class="title-img" mat-card-image  src="./assets/images/short-story.jpg">
+        <img *ngIf="item.Id===4"  class="title-img" mat-card-image  src="./assets/images/other.png">
       </mat-card>
     </div>
 

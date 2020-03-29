@@ -6,10 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgMatModule } from '../share/ngMat/ngMat.module';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
 import { SubCatagoryComponent } from './sub-catagory/sub-catagory.component';
-import { MatInputModule } from '@angular/material/input';
 import { ArrayFilterPipe } from '../share/pipe/array-filter';
 
 
@@ -22,10 +19,8 @@ import { ArrayFilterPipe } from '../share/pipe/array-filter';
     CommonModule,
     FormsModule,
     IonicModule,
-    MatButtonModule,
-    MatCardModule,
-    RouterModule ,
-    MatInputModule
+    RouterModule,
+    NgMatModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

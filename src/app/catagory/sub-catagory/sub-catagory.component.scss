@@ -36,3 +36,13 @@
   .example-full-width {
     width: 100%;
   }
+  .dot {
+    width: 50px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 2px whitesmoke;
+  }

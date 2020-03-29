@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SubCatagoryService } from 'src/app/share/services/catagory/subcatagory/sub-catagory.service';
 import { ActivatedRoute } from '@angular/router';
 import { SubCatagory } from '../models/subcatagory';
+import { RandomColor } from 'src/app/share/utility/random-color';
 
 @Component({
   selector: 'app-sub-catagory',
@@ -22,7 +23,9 @@ export class SubCatagoryComponent implements OnInit {
           this.subcatagories = res;
         });
   }
-
+  getRandomColor(){
+    return RandomColor.getRandomColor();
+  }
   search(event: any){
     //this.subcatagories
     this.text = event.target.value;

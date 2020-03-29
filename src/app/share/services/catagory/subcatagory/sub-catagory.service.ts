@@ -15,7 +15,7 @@ export class SubCatagoryService {
   }
 
   getBycatagoryId(id: number): Observable<any> {
-    return this.http.get(this.routePrefix + '/sub-catagory?catagoryId=' + id);
+    return this.http.get(this.routePrefix + '/catagory?catagoryId=' + id);
   }
 
   add(data): Observable<any> {
