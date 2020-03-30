@@ -8,11 +8,15 @@ import { RouterModule } from '@angular/router';
 import { NgMatModule } from '../share/ngMat/ngMat.module';
 import { SubCatagoryComponent } from './sub-catagory/sub-catagory.component';
 import { ArrayFilterPipe } from '../share/pipe/array-filter';
-
-
+import { ItemsViewComponent } from './sub-catagory/items-view/items-view.component';
 
 @NgModule({
-  declarations: [CatagoryComponent, SubCatagoryComponent, ArrayFilterPipe],
+  declarations: [
+    CatagoryComponent,
+    SubCatagoryComponent,
+    ArrayFilterPipe,
+    ItemsViewComponent
+  ],
   imports: [
     CommonModule,
     CatagoryRoutingModule,
@@ -22,6 +26,6 @@ import { ArrayFilterPipe } from '../share/pipe/array-filter';
     RouterModule,
     NgMatModule
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class CatagoryModule { }
+export class CatagoryModule {}

@@ -3,6 +3,7 @@ import { SubCatagoryService } from 'src/app/share/services/catagory/subcatagory/
 import { ActivatedRoute } from '@angular/router';
 import { SubCatagory } from '../models/subcatagory';
 import { RandomColor } from 'src/app/share/utility/random-color';
+import { CatagoryEnum } from 'src/app/share/utility/global-enum';
 
 @Component({
   selector: 'app-sub-catagory',
@@ -14,7 +15,8 @@ export class SubCatagoryComponent implements OnInit {
   Id = 0;
   text: string;
   subcatagories: SubCatagory[] = [];
-  constructor(private subCatagoryService: SubCatagoryService,private route: ActivatedRoute) { }
+  catagory: any = CatagoryEnum;
+  constructor(private subCatagoryService: SubCatagoryService, private route: ActivatedRoute) { }
 
   ngOnInit() {
         // tslint:disable-next-line: radix
