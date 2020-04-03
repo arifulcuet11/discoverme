@@ -14,11 +14,14 @@ export class ItemsViewComponent implements OnInit {
   index: any;
   pageSize: any;
   text = '';
+  contentTypeId: any;
   contents: any = [];
   totalContentsList: any = [];
   ngOnInit() {
     this.index = 0;
     this.pageSize = 10;
+    // tslint:disable-next-line: radix
+    this.contentTypeId = parseInt(this.route.snapshot.paramMap.get('Id'));
     this.getContent();
   }
 
@@ -37,8 +40,8 @@ export class ItemsViewComponent implements OnInit {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
   }
   getContent() {
-    this.contentService.Search(this.text, this.index, this.pageSize, 21).subscribe(res => {
-      this.contents = res.contents;
+    this.contentService.Search(this.text, this.index, this.pageSize, this.contentTypeId).subscribe(res => {
+      this.contents = res;
       this.totalContentsList = this.totalContentsList.concat(this.contents);
       this.index = this.index + 1;
       this.pageSize = 10;
@@ -46,5 +49,7 @@ export class ItemsViewComponent implements OnInit {
   }
   getRandomColor(){
     return RandomColor.getRandomColor();
+  }
+  markAsRead(id: number){
   }
 }

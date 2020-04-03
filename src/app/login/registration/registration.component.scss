@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 500px;
+    max-height: 600px;
+    position: absolute;
+    background-color: mistyrose;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+//   .button {
+//     display: flex;
+//     justify-content: flex-end;
+//   }
+  .example-full-width {
+    width: 100%;
+  }
+  .error {
+    color: red;
+  }

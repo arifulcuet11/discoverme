@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Sign Up
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div>
+
+  </div>
+  <mat-card class="example-card mt-300">
+    <mat-card-title>User Registration</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="registrationForm">
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Full Name</mat-label>
+          <input formControlName="name" type="text" matInput placeholder="name" >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" type="text" matInput placeholder="email" >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Passwors</mat-label>
+          <input formControlName="password" type="password" matInput placeholder="password" >
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Confirm Password</mat-label>
+          <input formControlName="confirmPassword" type="password" matInput placeholder="confirm password" >
+        </mat-form-field>
+        <p *ngFor="let item of error" class="error">
+          {{ item }}
+        </p>
+        <div class="button">
+          <button type="submit" [disabled]="!registrationForm.valid" class="example-full-width" (click)="submit()" color="success" mat-raised-button>Submit</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</ion-content>
