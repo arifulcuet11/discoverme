@@ -9,7 +9,8 @@ import { StorageService } from '../share/services/storage/storage.service';
 export class HomePage implements OnInit {
   isLogin: any;
   constructor(private storageService: StorageService) {
-    this.isLogin = this.storageService.getItem(this.storageService.IsLogin);
+    // this.isLogin = this.storageService.getItem(this.storageService.IsLogin);
+    this.isLogin = false;
   }
   ngOnInit() {
    
