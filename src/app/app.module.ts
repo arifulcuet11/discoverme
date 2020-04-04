@@ -9,12 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CatagoryModule } from './catagory/catagory.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { httpInterceptProviders } from './share/intercept';
 import { HttpClientModule } from '@angular/common/http';
-import { NgMatModule } from './share/ngMat/ngMat.module';
-import { ArrayFilterPipe } from './share/pipe/array-filter';
+import {SlideshowModule} from 'ng-simple-slideshow';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +20,8 @@ import { ArrayFilterPipe } from './share/pipe/array-filter';
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    SlideshowModule
   ],
   providers: [
     StatusBar,

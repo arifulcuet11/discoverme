@@ -26,9 +26,9 @@
           <input type="password" formControlName="password" matInput placeholder="password" >
         </mat-form-field>
 
-        <p *ngIf="error" class="error">
+        <!-- <p *ngIf="error" class="error">
           {{ error }}
-        </p>
+        </p> -->
 
         <div class="button">
           <button type="submit" class="example-full-width" [disabled]="!loginForm.valid" (click)="login()" color="success" mat-raised-button>Login</button>

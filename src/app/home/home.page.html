@@ -7,10 +7,34 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div style="padding: 5px;" *ngIf="!isLogin" >
-      <mat-card [routerLink]="['/login']"  class="example-card" >
-        <img class="title-img" mat-card-image  src="./assets/images/cover.png">
-      </mat-card>
-    </div>
-
+  <ion-searchbar (click)="searchModel()"></ion-searchbar>
+  <slideshow
+  [imageUrls]="imageUrls"
+  [height]="height"
+  [minHeight]="minHeight"
+  [arrowSize]="arrowSize"
+  [showArrows]="showArrows"
+  [disableSwiping]="disableSwiping"
+  [autoPlay]="autoPlay"
+  [stopAutoPlayOnSlide]="stopAutoPlayOnSlide"
+  [debug]="debug"
+  [backgroundSize]="backgroundSize"
+  [backgroundPosition]="backgroundPosition"
+  [backgroundRepeat]="backgroundRepeat"
+  [showDots]="showDots"
+  [dotColor]="dotColor"
+  [showCaptions]="showCaptions"
+  [captionColor]="captionColor"
+  [captionBackground]="captionBackground"
+  [lazyLoad]="lazyLoad"
+  [hideOnNoSlides]="hideOnNoSlides"
+  [fullscreen]="fullscreen"
+ [imageUrls]="imageUrls"></slideshow>
+ <mat-tab-group>
+  <mat-tab label="Catagory">
+    <app-home-catagory></app-home-catagory>
+  </mat-tab>
+  <mat-tab label="Popular"> Content 2 </mat-tab>
+  <mat-tab label="New"> Content 3 </mat-tab>
+</mat-tab-group>
 </ion-content>
