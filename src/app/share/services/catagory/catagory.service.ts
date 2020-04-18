@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CatagoryService {
 
-  routePrefix = '/api/GlobalEnum';
+  routePrefix = '/api/Catagory';
   constructor(private http: HttpClient) { }
 
   getById(id: number): Observable<any>{
@@ -15,7 +15,7 @@ export class CatagoryService {
   }
 
   gets(): Observable<any>{
-    return this.http.get(this.routePrefix + '/catagory');
+    return this.http.get(this.routePrefix + '/all');
   }
 
   add(data): Observable<any>{

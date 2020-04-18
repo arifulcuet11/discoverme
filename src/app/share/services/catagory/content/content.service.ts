@@ -18,7 +18,13 @@ export class ContentService {
     return this.http.get(this.routePrefix + '/searchFromAPP?text=' + text + '&index=' + index
      + '&size=' + size + '&contentTypeId=' + contentTypeId);
   }
-
+  getRecent(index: number, size: number): Observable<any> {
+    return this.http.get(this.routePrefix + '/recent/mobile?&index=' + index
+     + '&size=' + size);
+  }
+  getTop5(): Observable<any> {
+    return this.http.get(this.routePrefix + '/deshboard/mobile/');
+  }
   add(data): Observable<any> {
     return this.http.post(this.routePrefix + '/add', data);
   }

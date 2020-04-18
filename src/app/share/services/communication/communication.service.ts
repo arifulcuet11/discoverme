@@ -6,6 +6,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 export class CommunicationService {
 
   public showTopnavigationBar = new EventEmitter();
-  // public reloadBenefitItems = new EventEmitter();
+  public loginLogoutInfo = new EventEmitter();
+  public languageInfo = new EventEmitter();
   constructor() { }
 }

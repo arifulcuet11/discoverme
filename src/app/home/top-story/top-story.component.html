@@ -1,3 +1,29 @@
-<p>
-  top-story works!
-</p>
+<div *ngFor="let catagory of topCatagory">
+  <div class="row" style="text-align:center" [ngStyle]="{'background-color': catagory.colorCode}">
+    <small style="color: ghostwhite;">Top-5 {{catagory.name}}</small>
+  </div>
+  
+  <div *ngFor="let item of topContents; let i = index">
+    <ion-item *ngIf="item.catagoryId === catagory.id" style="background-color: ghostwhite;">
+      <ion-avatar slot="start">
+        <div  style="text-align:center">
+          <span  [ngStyle]="{'background-color': item.colorCode}" class="dot">{{(i+1)%5 ==0? 5 : (i+1)%5 }}</span>
+        </div>
+      </ion-avatar>
+      <ion-label>
+        <h4><strong>{{item.title}}</strong></h4>
+        <small>{{item.providerName ===null? 'Admin' : item.providerName}}</small>
+        <p> <button mat-button><span class="material-icons">
+          favorite
+          </span>{{item.totalLike}}</button>
+        <button mat-button><span class="material-icons">
+          comment
+          </span>{{item.totalComment}}</button>
+          <button mat-button><span class="material-icons">
+            visibility
+            </span> {{item.totalRead}}</button></p>
+      </ion-label>
+    </ion-item>
+  </div>
+
+</div>

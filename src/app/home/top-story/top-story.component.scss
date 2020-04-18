@@ -1,0 +1,20 @@
+.dot {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 3px;
+    box-shadow: 0 2px #999;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+  }
+  .dot:hover {background-color: #3e8e41}
+  
+  .dot:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }

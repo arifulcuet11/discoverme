@@ -1,40 +1,40 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-searchbar (click)="searchModel()"></ion-searchbar>
-  <slideshow
-  [imageUrls]="imageUrls"
-  [height]="height"
-  [minHeight]="minHeight"
-  [arrowSize]="arrowSize"
-  [showArrows]="showArrows"
-  [disableSwiping]="disableSwiping"
-  [autoPlay]="autoPlay"
-  [stopAutoPlayOnSlide]="stopAutoPlayOnSlide"
-  [debug]="debug"
-  [backgroundSize]="backgroundSize"
-  [backgroundPosition]="backgroundPosition"
-  [backgroundRepeat]="backgroundRepeat"
-  [showDots]="showDots"
-  [dotColor]="dotColor"
-  [showCaptions]="showCaptions"
-  [captionColor]="captionColor"
-  [captionBackground]="captionBackground"
-  [lazyLoad]="lazyLoad"
-  [hideOnNoSlides]="hideOnNoSlides"
-  [fullscreen]="fullscreen"
- [imageUrls]="imageUrls"></slideshow>
- <mat-tab-group>
-  <mat-tab label="Catagory">
-    <app-home-catagory></app-home-catagory>
+  <ion-searchbar class="search" (click)="searchModel()"></ion-searchbar>
+  <app-sliding-image></app-sliding-image>
+  <app-home-catagory></app-home-catagory>
+ <mat-tab-group  mat-stretch-tabs [selectedIndex]="selected"  (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)" >
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon style="color: green;font-size:18px; margin-top: 5px;" class="example-tab-icon">thumb_up</mat-icon>
+      Top
+    </ng-template>
+    <app-top-story></app-top-story>
   </mat-tab>
-  <mat-tab label="Popular"> Content 2 </mat-tab>
-  <mat-tab label="New"> Content 3 </mat-tab>
+  <mat-tab> 
+    <ng-template mat-tab-label>
+      <mat-icon style="color: blueviolet;font-size:18px; margin-top: 5px;" class="example-tab-icon">today</mat-icon>
+      Recent
+    </ng-template>
+    <app-recently-add></app-recently-add>
+  </mat-tab>
+  <!-- <mat-tab> 
+    <ng-template mat-tab-label>
+      <mat-icon style="color: cornflowerblue; font-size:18px; margin-top: 5px;" class="example-tab-icon">assignment_ind</mat-icon>
+      Your
+    </ng-template>
+    <app-your></app-your>
+   </mat-tab> -->
 </mat-tab-group>
 </ion-content>
+
+
+

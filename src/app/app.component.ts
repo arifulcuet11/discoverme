@@ -14,7 +14,9 @@ import { CommunicationService } from './share/services/communication/communicati
 })
 export class AppComponent implements OnInit {
   showBottomNav: any;
+  loginLogout: any;
   isBottomBarShow: any = true;
+  isUserLogin = false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -27,13 +29,22 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-        this.authService.checkToken().subscribe(res => {
-           this.storageService.setItem(this.storageService.IsLogin, true);
-        });
-        this.showBottomNav = this.communicationService.showTopnavigationBar.subscribe( res => {
+    setTimeout(() => {
+      this.authService.checkToken().subscribe(res => {
+        this.storageService.setItem(this.storageService.IsLogin, true);
+        this.isUserLogin = true;
+      }, (err) => {
+          this.storageService.setItem(this.storageService.IsLogin, false);
+      });
+    }, 1000);
+
+ 
+    this.showBottomNav = this.communicationService.showTopnavigationBar.subscribe( res => {
              this.isBottomBarShow = res;
-             console.log(this.isBottomBarShow);
           });
+    this.loginLogout = this.communicationService.loginLogoutInfo.subscribe( res => {
+            this.isUserLogin = res;
+         });
    }
 
   initializeApp() {
@@ -44,10 +55,5 @@ export class AppComponent implements OnInit {
       }
       this.splashScreen.hide();
     });
-  }
-
-  catagory() {
-    console.log('ok');
-
   }
 }

@@ -7,6 +7,7 @@ export class StorageService {
   public TOKEN_KEY = 'token';
   public IsLogin = 'isLogin';
   public ExpireDate = 'expireDate';
+  public LanguageId = 'language';
   private obj = {};
   constructor() { }
 
@@ -22,5 +23,7 @@ export class StorageService {
     const data = localStorage.getItem(key);
     return data;
   }
-
+  removeItem(key: string) {
+    localStorage.removeItem(key);
+  }
 }

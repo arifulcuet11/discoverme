@@ -26,6 +26,6 @@ import { ItemsViewComponent } from './sub-catagory/items-view/items-view.compone
     RouterModule,
     NgMatModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CatagoryModule {}

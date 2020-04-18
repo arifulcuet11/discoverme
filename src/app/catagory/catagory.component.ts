@@ -14,23 +14,15 @@ export class CatagoryComponent implements OnInit {
 
   ngOnInit() {
 
-   this.catagoryService.gets().subscribe(res => {
-
-
-     // tslint:disable-next-line: forin
-     for (const obj in res) {
-     const x = new Catagory();
-     if (res.hasOwnProperty(obj)) {
-        x.Name = obj;
-        x.Id = res[x.Name];
-        this.catagories.push(x);
-      }
-    }
-     console.log(this.catagories);
-    });
+;
   }
 
-  subCatagory(){
+  getCatagory(){
+    this.catagoryService.gets().subscribe(res => {
+         this.catagories = res;
+     })
+  }
+  subCatagory() {
     
   }
 

@@ -11,12 +11,18 @@ import { SearchContentComponent } from './search-content/search-content/search-c
 import { HomeCatagoryComponent } from './home-catagory/home-catagory.component';
 import { TopStoryComponent } from './top-story/top-story.component';
 import { RecentlyAddComponent } from './recently-add/recently-add.component';
+import { SlidingImageComponent } from './sliding-image/sliding-image.component';
+import { CatagoryModule } from '../catagory/catagory.module';
+import { CatagoryComponent } from '../catagory/catagory.component';
+import { YourComponent } from './your/your.component';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     SlideshowModule,
+    CatagoryModule,
     RouterModule.forChild([
       {
         path: '',
@@ -31,13 +37,21 @@ import { RecentlyAddComponent } from './recently-add/recently-add.component';
     HomeCatagoryComponent,
     TopStoryComponent,
     RecentlyAddComponent,
+    SlidingImageComponent,
+    YourComponent
   ],
   entryComponents: [
     SearchContentComponent,
     HomeCatagoryComponent,
     TopStoryComponent,
     RecentlyAddComponent,
+    SlidingImageComponent,
+    YourComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [{
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: HammerGestureConfig
+   }],
 })
 export class HomePageModule {}

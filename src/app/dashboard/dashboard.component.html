@@ -1,3 +1,12 @@
-<p>
-  dashboard works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="backButton()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-dashboard-menu></app-dashboard-menu>
+</ion-content>

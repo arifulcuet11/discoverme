@@ -1,0 +1,36 @@
+<mat-list>
+  <mat-list-item style=" margin-bottom: 15px;">
+    <img mat-list-avatar src="https://www.qries.com/images/banner_logo.png" >
+    <div mat-line><strong>Ariful Islam</strong> </div>
+    <div mat-line style="font-size: 10px;"> 01675908553 </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item  class="menu-item">
+    <mat-icon style="color: darkgreen;" mat-list-icon>home</mat-icon>
+    <div mat-line>Home</div>
+  </mat-list-item>
+  <mat-list-item class="menu-item">
+    <mat-icon style="color:darkorchid;" mat-list-icon>dashboard</mat-icon>
+    <div mat-line>Dashboard</div>
+  </mat-list-item>
+  <mat-list-item class="menu-item">
+    <mat-icon style="color:darkslategray;" mat-list-icon>notification_important</mat-icon>
+    <div mat-line>Notification</div>
+  </mat-list-item>
+  <mat-list-item class="menu-item">
+    <mat-icon  style="color:red;" mat-list-icon>favorite</mat-icon>
+    <div mat-line>Favorite</div>
+  </mat-list-item>
+  <mat-list-item class="menu-item">
+    <mat-icon style="color:thistle;" mat-list-icon>language</mat-icon>
+    <div mat-line>Language</div>
+  </mat-list-item>
+  <mat-list-item class="menu-item">
+    <mat-icon style="color:indigo;" mat-list-icon>share</mat-icon>
+    <div mat-line>Share</div>
+  </mat-list-item>
+  <mat-list-item (click)="logout()" class="menu-item">
+    <mat-icon style="color:red;" mat-list-icon>exit_to_app</mat-icon>
+    <div mat-line>Log out</div>
+  </mat-list-item>
+</mat-list>

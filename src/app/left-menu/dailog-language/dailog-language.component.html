@@ -1,0 +1,12 @@
+<label style="margin-bottom: 2px;">Choose language</label>
+<mat-divider></mat-divider>
+<mat-radio-group
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group" [(ngModel)]="languageId">
+  <mat-radio-button  (change) ="languageChange($event)" class="example-radio-button" [value]="language.English">
+    English
+  </mat-radio-button>
+  <mat-radio-button  (change) ="languageChange($event)" class="example-radio-button" [value]="language.Bangla">
+    বাংলা 
+  </mat-radio-button>
+</mat-radio-group>

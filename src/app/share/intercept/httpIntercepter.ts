@@ -32,11 +32,6 @@ export class HttpApiInterceptor implements HttpInterceptor {
         return event;
       }),
       catchError((error: HttpErrorResponse) => {
-        console.log('http_Config_catch_error', error);
-        if (error.status === 401) {
-          localStorage.clear();
-          window.location.reload();
-         }
         return throwError(error);
       }),
       finalize(() => {

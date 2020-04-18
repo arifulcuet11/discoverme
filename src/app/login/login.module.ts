@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
     IonicModule,
     RouterModule,
     ReactiveFormsModule
-  ]
+  ],
+  entryComponents: [],
 })
 export class LoginModule { }

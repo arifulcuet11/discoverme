@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.activeRouter.params.subscribe((params: Params) => {
       this.communicationService.showTopnavigationBar.emit(false);
+      this.communicationService.loginLogoutInfo.emit(false);
     });
   }
   backButton() {
@@ -45,6 +46,9 @@ export class LoginComponent implements OnInit {
         this.storageService.ExpireDate,
         res.expireTime
       );
+      this.storageService.setItem(this.storageService.IsLogin, true);
+      this.communicationService.loginLogoutInfo.emit(true);
+      this.communicationService.showTopnavigationBar.emit(true);
       setTimeout(() => {
         this.route.navigate(['/home']);
       }, 1000);

@@ -1,16 +1,8 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      CATAGORY
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <div [routerLink]="['/catagory/subcatagory', item.Id]" *ngFor="let item of catagories" style="padding: 10px;" >
       <mat-card class="example-card" >
         <mat-card-header>
-          <mat-card-title class="text-center">{{item.Name}}</mat-card-title>
+          <mat-card-title class="text-center">{{item.name}}</mat-card-title>
           <mat-card-subtitle class="text-center">25 subcatagory</mat-card-subtitle>
         </mat-card-header>
         <img *ngIf="item.Id===1" class="title-img" mat-card-image  src="./assets/images/joke.jpg">

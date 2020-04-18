@@ -1,5 +1,7 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <app-menu *ngIf="isUserLogin"></app-menu>
+  <app-menu-before-signin *ngIf="!isUserLogin"></app-menu-before-signin>
+  <ion-router-outlet id="main"></ion-router-outlet>
   <div >
     <ion-tabs >
       <ion-tab-bar [hidden]="!isBottomBarShow" slot="bottom">
