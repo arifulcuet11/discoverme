@@ -1,11 +1,8 @@
 import { Component, OnInit, ViewChild, ViewChildren } from '@angular/core';
 import { StorageService } from '../share/services/storage/storage.service';
-import { ActivatedRoute, Params } from '@angular/router';
-import { IImage } from 'ng-simple-slideshow';
+import { Router } from '@angular/router';
 import { ModalController, MenuController } from '@ionic/angular';
 import { SearchContentComponent } from './search-content/search-content/search-content.component';
-import { CatagoryService } from '../share/services/catagory/catagory.service';
-import { Catagory } from '../catagory/models/catagory';
 import { MatTabGroup, MatTab } from '@angular/material';
 import $ from 'jquery';
 @Component({
@@ -21,10 +18,9 @@ export class HomePage implements OnInit {
   selected = 0;
   SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
   constructor(private storageService: StorageService,
-              private activeRouter: ActivatedRoute,
               public modalController: ModalController,
-              private catagoryService: CatagoryService,
-              private menu: MenuController) {
+              private menu: MenuController,
+              private router: Router) {
   }
   ngOnInit() {
 
@@ -43,5 +39,12 @@ export class HomePage implements OnInit {
       component: SearchContentComponent
     });
     return await modal.present();
+  }
+  doRefresh(event) {
+      event.target.complete();
+      window.location.reload();
+    //   this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+    //     this.router.navigate(['/home']);
+    // }); 
   }
 }

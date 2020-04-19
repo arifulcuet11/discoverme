@@ -9,6 +9,9 @@
 
 <ion-content [fullscreen]="true">
   <ion-searchbar class="search" (click)="searchModel()"></ion-searchbar>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
   <app-sliding-image></app-sliding-image>
   <app-home-catagory></app-home-catagory>
  <mat-tab-group  mat-stretch-tabs [selectedIndex]="selected"  (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)" >

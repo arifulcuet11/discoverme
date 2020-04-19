@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-search-content',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(  public modalController: ModalController) { }
 
   ngOnInit() {}
+
+  backButton(){
+    this.modalController.dismiss();
+  }
 
 }

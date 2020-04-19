@@ -100,4 +100,84 @@ export class MenuList {
        },
      ];
      }
+     public getBeforeEnglistMenuList() {
+      return [
+       {
+        name: 'Home',
+        id: 1,
+        colorCode: 'darkgreen',
+        icon: 'home',
+      },
+      {
+       name: 'Sign In',
+       id: 2,
+       colorCode: 'violet',
+       icon: 'account_circle',
+     },
+     {
+       name: 'Favorite',
+       id: 4,
+       colorCode: 'red',
+       icon: 'favorite',
+     },
+     {
+       name: 'Language',
+       id: 5,
+       colorCode: 'thistle',
+       icon: 'language',
+     },
+     {
+       name: 'Share',
+       id: 6,
+       colorCode: 'indigo',
+       icon: 'share',
+     },
+     {
+       name: 'Rated Us',
+       id: 7,
+       colorCode: 'darkgreen',
+       icon: 'star',
+     },
+   ];
+   }
+   public getBeforeBanglaMenuList() {
+    return [
+     {
+      name: 'হোম ',
+      id: 1,
+      colorCode: 'darkgreen',
+      icon: 'home',
+    },
+    {
+     name: 'প্রবেশ করুন ',
+     id: 2,
+     colorCode: 'violet',
+     icon: 'account_circle',
+   },
+   {
+     name: 'প্রিয়',
+     id: 4,
+     colorCode: 'red',
+     icon: 'favorite',
+   },
+   {
+     name: 'ভাষা',
+     id: 5,
+     colorCode: 'thistle',
+     icon: 'language',
+   },
+   {
+     name: 'শেয়ার',
+     id: 6,
+     colorCode: 'indigo',
+     icon: 'share',
+   },
+   {
+     name: 'রেটেড',
+     id: 7,
+     colorCode: 'darkgreen',
+     icon: 'star',
+   },
+ ];
+ }
 }

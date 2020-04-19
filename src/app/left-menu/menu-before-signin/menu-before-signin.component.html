@@ -12,29 +12,9 @@
         <div mat-line style="font-size: 10px;"> 01675908553 </div>
       </mat-list-item>
       <mat-divider></mat-divider>
-      <mat-list-item  class="menu-item">
-        <mat-icon style="color: darkgreen;" mat-list-icon>home</mat-icon>
-        <div mat-line>Home</div>
-      </mat-list-item>
-      <mat-list-item (click)="login()"  class="menu-item">
-        <mat-icon style="color: violet;" mat-list-icon>account_circle</mat-icon>
-        <div mat-line>Sign In</div>
-      </mat-list-item>
-      <mat-list-item class="menu-item">
-        <mat-icon  style="color:red;" mat-list-icon>favorite</mat-icon>
-        <div mat-line>Favorite</div>
-      </mat-list-item>
-      <mat-list-item class="menu-item">
-        <mat-icon style="color:thistle;" mat-list-icon>language</mat-icon>
-        <div mat-line>Language</div>
-      </mat-list-item>
-      <mat-list-item class="menu-item">
-        <mat-icon style="color:indigo;" mat-list-icon>share</mat-icon>
-        <div mat-line>Share</div>
-      </mat-list-item>
-      <mat-list-item class="menu-item">
-        <mat-icon style="color:lightseagreen;" mat-list-icon>star</mat-icon>
-        <div mat-line>Rated Us</div>
+      <mat-list-item *ngFor="let item of menuList" (click)="clickMenu(item.id)"  class="menu-item">
+        <mat-icon [ngStyle]="{'color': item.colorCode}" mat-list-icon>{{item.icon}}</mat-icon>
+        <div mat-line>{{item.name}}</div>
       </mat-list-item>
     </mat-list>
   </ion-content>
