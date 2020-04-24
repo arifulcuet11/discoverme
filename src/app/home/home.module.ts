@@ -16,6 +16,7 @@ import { CatagoryModule } from '../catagory/catagory.module';
 import { CatagoryComponent } from '../catagory/catagory.component';
 import { YourComponent } from './your/your.component';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+import { DailogFilterOptionComponent } from './search-content/dailog-filter-option/dailog-filter-option.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +39,8 @@ import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-br
     TopStoryComponent,
     RecentlyAddComponent,
     SlidingImageComponent,
-    YourComponent
+    YourComponent,
+    DailogFilterOptionComponent,
   ],
   entryComponents: [
     SearchContentComponent,
@@ -46,7 +48,8 @@ import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-br
     TopStoryComponent,
     RecentlyAddComponent,
     SlidingImageComponent,
-    YourComponent
+    YourComponent,
+    DailogFilterOptionComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{

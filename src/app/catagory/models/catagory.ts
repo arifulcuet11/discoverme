@@ -8,5 +8,6 @@ export interface Catagory {
     updatedBy?: number;
     updatedDateUtc?: Date;
     colorCode: string;
+    isChecked?: boolean;
   }
   

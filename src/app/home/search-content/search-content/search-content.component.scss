@@ -4,3 +4,6 @@
 .mat-list-base {
      padding-top: 0px!important; 
 }
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: white !important;
+  }
