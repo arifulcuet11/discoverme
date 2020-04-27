@@ -17,9 +17,10 @@ import { NgMatModule } from './share/ngMat/ngMat.module';
 import { MenuBeforeSigninComponent } from './left-menu/menu-before-signin/menu-before-signin.component';
 import { DailogLanguageComponent } from './left-menu/dailog-language/dailog-language.component';
 import { FormsModule } from '@angular/forms';
+import { ArrayFilterPipe } from './share/pipe/array-filter';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, MenuBeforeSigninComponent, DailogLanguageComponent],
+  declarations: [AppComponent, MenuComponent, MenuBeforeSigninComponent, DailogLanguageComponent, ArrayFilterPipe],
   entryComponents: [MenuComponent, MenuBeforeSigninComponent, DailogLanguageComponent],
   imports: [BrowserModule,
     IonicModule.forRoot(),

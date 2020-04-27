@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
         this.storageService.ExpireDate,
         res.expireTime
       );
+      this.storageService.setItem(this.storageService.User, JSON.stringify(res.user));
       this.storageService.setItem(this.storageService.IsLogin, true);
       this.communicationService.loginLogoutInfo.emit(true);
       this.communicationService.showTopnavigationBar.emit(true);

@@ -1,18 +1,21 @@
 
- <button mat-icon-button  color="warn" aria-label="Example icon button with a menu icon">
-  <mat-icon>clear</mat-icon>
-</button>
+  <button mat-icon-button  color="warn" (click)="clear()">
+    <mat-icon>clear</mat-icon>
+  </button>
 <ion-list>
-  <mat-label style="color: cadetblue;">Search Option</mat-label>
-  <ion-item *ngFor="let item of optionList">
-    <ion-label>{{item.name}}</ion-label>
-    <ion-checkbox slot="end" [(ngModel)]="item.isChecked"></ion-checkbox>
-  </ion-item>
-</ion-list>
-<ion-list>
-  <mat-label style="color: cadetblue;">Catagory</mat-label>
-  <ion-item *ngFor="let item of catagoryList">
-    <ion-label>{{item.name}}</ion-label>
-    <ion-checkbox slot="end" [(ngModel)]="item.isChecked"></ion-checkbox>
-  </ion-item>
-</ion-list>
+    <ion-radio-group allow-empty-selection [(ngModel)]="optionId">
+      <mat-label style="color: cadetblue;">Sort By</mat-label>
+      <ion-item *ngFor="let item of optionList">
+        <ion-label>{{item.name}}</ion-label>
+        <ion-radio slot="end" color="primary"  [value]="item.id"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <ion-list>
+    <mat-label style="color: cadetblue;">Catagory</mat-label>
+    <ion-item *ngFor="let item of catagoryList">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="item.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+

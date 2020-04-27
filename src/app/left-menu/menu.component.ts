@@ -13,6 +13,8 @@ import { StorageService } from '../share/services/storage/storage.service';
 })
 export class MenuComponent implements OnInit {
   language: any;
+  user: any;
+  userlogin: any;
   menuList: any = [];
   constructor(public dialog: MatDialog,
               private menu: MenuController,
@@ -20,6 +22,7 @@ export class MenuComponent implements OnInit {
               private storageService: StorageService) { }
 
   ngOnInit() {
+   this.user = JSON.parse(this.storageService.getItem(this.storageService.User));
    this.init();
   }
 
@@ -34,6 +37,10 @@ export class MenuComponent implements OnInit {
     this.language = this.communicationService.languageInfo.subscribe( res => {
       this.menuList = res === Language.Bangla ? new MenuList().getBanglaMenuList() : new MenuList().getEnglistMenuList();
     });
+
+    this.userlogin = this.communicationService.loginLogoutInfo.subscribe( res=>{
+       this.user = this.storageService.getItem(this.storageService.User);
+    })
   }
 
   openDialog(): void {

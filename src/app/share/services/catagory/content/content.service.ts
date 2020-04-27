@@ -13,7 +13,9 @@ export class ContentService {
   getById(id: number): Observable<any> {
     return this.http.get(this.routePrefix + '/get/' + id);
   }
-
+  getByCatagoryId(id: number): Observable<any> {
+    return this.http.get(this.routePrefix + '/sub-catagory/' + id);
+  }
   Search(text: string, index: number, size: number, contentTypeId: number): Observable<any> {
     return this.http.get(this.routePrefix + '/searchFromAPP?text=' + text + '&index=' + index
      + '&size=' + size + '&contentTypeId=' + contentTypeId);
@@ -36,5 +38,8 @@ export class ContentService {
   delete(id: number): Observable<any> {
     return this.http.delete(this.routePrefix + '/delete/' + id);
   }
-
+  MainSearch(text: string, index: number, size: number, catagoryIds: string, optionId: number): Observable<any> {
+    return this.http.get(this.routePrefix + '/search/mobile?text=' + text + '&index=' + index
+     + '&size=' + size + '&catagoryIds=' + catagoryIds + '&searchOption=' + optionId);
+  }
 }

@@ -14,16 +14,15 @@ export class CatagoryComponent implements OnInit {
 
   ngOnInit() {
 
-;
   }
 
-  getCatagory(){
+  getCatagory() {
     this.catagoryService.gets().subscribe(res => {
          this.catagories = res;
-     })
+     });
   }
   subCatagory() {
-    
+
   }
 
 }

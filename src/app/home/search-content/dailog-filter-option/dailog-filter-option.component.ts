@@ -11,6 +11,7 @@ import { Catagory } from 'src/app/catagory/models/catagory';
 export class DailogFilterOptionComponent implements OnInit {
   optionList = [];
   catagoryList: Catagory[] =[];
+  optionId = 1;
   constructor(private catagoryService: CatagoryService,
               public dialogRef: MatDialogRef<DailogFilterOptionComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -23,7 +24,7 @@ export class DailogFilterOptionComponent implements OnInit {
 
   clear() {
     this.dialogRef.close({
-      optionList: this.optionList,
+      optionId: this.optionId,
       catagoryList: this.catagoryList
     });
   }

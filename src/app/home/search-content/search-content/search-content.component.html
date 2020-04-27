@@ -4,11 +4,41 @@
       <ion-back-button (click)="backButton()" defaultHref="/" style="margin-right: 5px;"></ion-back-button>
     </ion-buttons>
     <!-- <ion-searchbar></ion-searchbar> -->
-    <mat-form-field class="example-full-width">
-      <input matInput value="search">
+    <mat-form-field appearance="outline"  class="example-full-width" >
+      <input matInput [(ngModel)]="text" placeholder="search" (keyup.enter)="enterClick()">
     </mat-form-field>
-    <ion-buttons (click)="filter()" slot="end">
+    <ion-buttons (click)="filter()"  slot="end"   >
       <ion-icon name="options" style="margin-right: 5px;"></ion-icon>
-    </ion-buttons>
+  </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<ion-content [fullscreen]="true">
+  <div *ngFor="let item of totalContentsList; let i = index">
+    <ion-item style="background-color: ghostwhite;">
+      <ion-avatar slot="start">
+        <div  style="text-align:center">
+          <span  [ngStyle]="{'background-color': item.colorCode}" class="dot"><small>{{i+1}}</small></span>
+        </div>
+      </ion-avatar>
+      <ion-label>
+        <h4><strong>{{item.title}}</strong></h4>
+        <small>{{item.providerName ===null? 'Admin' : item.providerName}},<strong [ngStyle]="{'color': item.colorCode}">{{item.catagoryName}}</strong></small>
+        <p> <button mat-button><span class="material-icons">
+          favorite
+          </span>{{item.totalLike}}</button>
+        <button mat-button><span class="material-icons">
+          comment
+          </span>{{item.totalComment}}</button>
+          <button mat-button><span class="material-icons">
+            visibility
+            </span> {{item.totalRead}}</button></p>
+      </ion-label>
+    </ion-item>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

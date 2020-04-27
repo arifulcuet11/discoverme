@@ -7,9 +7,9 @@
   <ion-content>
     <mat-list>
       <mat-list-item style="margin-top: 15px; margin-bottom: 15px;">
-        <img mat-list-avatar src="https://www.qries.com/images/banner_logo.png" >
-        <div mat-line><strong>Ariful Islam</strong> </div>
-        <div mat-line style="font-size: 10px;"> 01675908553 </div>
+        <img mat-list-avatar [src]="user.profilePicSrc" onerror="this.src='./assets/images/default_profile.png';" >
+        <div mat-line><strong>{{user.name}}</strong> </div>
+        <div mat-line style="font-size: 10px;"> {{user.email}} </div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <mat-list-item *ngFor="let item of menuList" (click)="clickMenu(item.id)"  class="menu-item">

@@ -2,7 +2,9 @@
 <ion-row >
   <ion-col size="4" *ngFor="let item of catagories">
     <div style="text-align:center">
-      <span [ngStyle]="{'background-color': item.colorCode}" class="dot">{{languageId ===language.Bangla?item.banglaName : item.name}}</span>
+      <span [routerLink]="['/content-type/type', item.id, languageId ===language.Bangla?item.banglaName : item.name]"
+       [ngStyle]="{'background-color': item.colorCode}" 
+       class="dot">{{languageId ===language.Bangla?item.banglaName : item.name}}</span>
     </div>
   </ion-col>
 </ion-row>

@@ -11,7 +11,7 @@ export class SubCatagoryService {
   constructor(private http: HttpClient) { }
 
   getById(id: number): Observable<any> {
-    return this.http.get(this.routePrefix + '/get/'+ id);
+    return this.http.get(this.routePrefix + '/get/' + id);
   }
 
   getBycatagoryId(id: number): Observable<any> {
@@ -23,7 +23,7 @@ export class SubCatagoryService {
   }
 
   edit(id: number, data): Observable<any> {
-    return this.http.put(this.routePrefix + '/edit/'+ id, data);
+    return this.http.put(this.routePrefix + '/edit/' + id, data);
   }
 
   delete(id: number): Observable<any> {

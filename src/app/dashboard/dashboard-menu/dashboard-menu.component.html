@@ -1,8 +1,8 @@
 <mat-list>
   <mat-list-item style=" margin-bottom: 15px;">
-    <img mat-list-avatar src="https://www.qries.com/images/banner_logo.png" >
-    <div mat-line><strong>Ariful Islam</strong> </div>
-    <div mat-line style="font-size: 10px;"> 01675908553 </div>
+    <img mat-list-avatar [src]="user.profilePicSrc" onerror="this.src='./assets/images/default_profile.png';" >
+    <div mat-line><strong>{{user.name}}</strong> </div>
+    <div mat-line style="font-size: 10px;"> {{user.email}} </div>
   </mat-list-item>
   <mat-divider></mat-divider>
   <mat-list-item class="menu-item">
@@ -13,11 +13,11 @@
     <mat-icon  style="color:red;" mat-list-icon>favorite</mat-icon>
     <div mat-line>Favorite</div>
   </mat-list-item>
-  <mat-list-item class="menu-item">
+  <mat-list-item [routerLink]="['/dashboard/edit-profile']" class="menu-item">
     <mat-icon style="color:thistle;" mat-list-icon>person</mat-icon>
     <div mat-line>Edit Personal Info</div>
   </mat-list-item>
-  <mat-list-item class="menu-item">
+  <mat-list-item [routerLink]="['/dashboard/change-password']" class="menu-item">
     <mat-icon style="color:indigo;" mat-list-icon>account_circle</mat-icon>
     <div mat-line>Change Password</div>
   </mat-list-item>
