@@ -9,6 +9,7 @@ export class StorageService {
   public ExpireDate = 'expireDate';
   public LanguageId = 'language';
   public User = 'user';
+  public ItemView = 'items';
   private obj = {};
   constructor() { }
 

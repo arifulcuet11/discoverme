@@ -1,0 +1,18 @@
+
+  <ion-list>
+    <mat-label style="color: cadetblue;">Option</mat-label>
+    <ion-item *ngFor="let item of optionList">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-checkbox slot="end" [(ngModel)]="item.isChecked"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-row>
+    <ion-col size="10">
+    </ion-col >
+    <ion-col size="2">
+      <button mat-icon-button  color="warn" (click)="clear()">
+        OK
+</button>
+    </ion-col>
+  </ion-row>
+ 

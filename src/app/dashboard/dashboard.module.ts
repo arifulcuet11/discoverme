@@ -21,7 +21,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
   ],
   imports: [
     CommonModule,
-    CommonModule,
     FormsModule,
     IonicModule,
     DashboardRoutingModule,
