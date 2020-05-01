@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MarkAsReadService } from './mark-as-read.service';
+import { ContentAsReadService } from './content-as-read.service';
 
-describe('MarkAsReadService', () => {
+describe('ContentAsReadService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: MarkAsReadService = TestBed.get(MarkAsReadService);
+    const service: ContentAsReadService = TestBed.get(ContentAsReadService);
     expect(service).toBeTruthy();
   });
 });

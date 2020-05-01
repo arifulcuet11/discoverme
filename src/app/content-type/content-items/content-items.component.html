@@ -8,14 +8,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="filterOption()">
+      <ion-icon name="filter-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <ion-row>
     <ion-col size="10">
       <ion-searchbar [(ngModel)]="text" (keyup.enter)="enterClick()" class="search"></ion-searchbar>
     </ion-col >
     <ion-col size="2">
-      <button (click)="filterOption()" mat-mini-fab color="primary">
-        <mat-icon>filter_list</mat-icon>
-      </button>
+
     </ion-col>
   </ion-row>
   <div *ngFor="let item of totalContentsList; let i = index">

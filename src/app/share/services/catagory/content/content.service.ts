@@ -42,4 +42,7 @@ export class ContentService {
     return this.http.get(this.routePrefix + '/search/mobile?text=' + text + '&index=' + index
      + '&size=' + size + '&catagoryIds=' + catagoryIds + '&searchOption=' + optionId);
   }
+  updateViewCount(id: number): Observable<any> {
+    return this.http.put(this.routePrefix + '/viewCount/' + id, null);
+  }
 }

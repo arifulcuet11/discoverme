@@ -13,10 +13,10 @@ export class HttpApiInterceptor implements HttpInterceptor {
               private loadingService: LoadingService,
               private storageService: StorageService) {}
    intercept(request: HttpRequest<any>, next: HttpHandler) {
-     if (!this.loaderActive) {
-        this.loadingService.loadingPresent();
-        this.loaderActive = true;
-    }
+    //  if (!this.loaderActive) {
+    //     this.loadingService.loadingPresent();
+    //     this.loaderActive = true;
+    // }
      const Appurl = AppConstant.ApiUrlLocal + request.url ;
      request = request.clone({ url: Appurl });
      request = request.clone({
@@ -27,7 +27,7 @@ export class HttpApiInterceptor implements HttpInterceptor {
      return next.handle(request).pipe(
       map((event: HttpEvent<any>) => {
         if (event instanceof HttpResponse) {
-          this.loaderActive = true;
+          // this.loaderActive = true;
         }
         return event;
       }),
@@ -35,8 +35,8 @@ export class HttpApiInterceptor implements HttpInterceptor {
         return throwError(error);
       }),
       finalize(() => {
-        this.loadingService.loadingDismiss();
-        this.loaderActive = false;
+        // this.loadingService.loadingDismiss();
+        // this.loaderActive = false;
       })
     );
   }

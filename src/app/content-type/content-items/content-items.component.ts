@@ -48,11 +48,11 @@ export class ContentItemsComponent implements OnInit {
       this.communicationService.showTopnavigationBar.emit(false);
       this.id = +params.get('id');
       this.headerName = params.get('name');
-      this.index = 0;
-      this.text = '';
-      this.pageSize = 10;
-      this.search(false);
     });
+    this.index = 0;
+    this.text = '';
+    this.pageSize = 10;
+    this.search(false);
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(DailogFilterContentTypeComponent, {
@@ -108,6 +108,6 @@ export class ContentItemsComponent implements OnInit {
       content: item
     };
     this.storageService.setItem(this.storageService.ItemView,JSON.stringify(data));
-    this.route.navigate(['content-view/view/', item.id]);
+    this.route.navigate(['/content-type/view/', item.id]);
   }
 }

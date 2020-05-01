@@ -1,0 +1,22 @@
+
+  .ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }
+  .poem {
+    display: table;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  /* Indent wrapping lines */
+  .stanza {
+    text-indent: 0;
+    margin-left: 2em;
+  }
+  .verse {
+    margin-left: -2em;
+  }
+#background-content{
+  background: darkslategray!important;
+}
