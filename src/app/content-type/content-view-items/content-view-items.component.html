@@ -13,10 +13,10 @@
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title class="card-container-center" (click)="markAsRead()"> {{content?.title}}
-            <a *ngIf="content?.markAsReadStatus ===1" matTooltip="mark as unread?" style="font-size: 15px; color:black" class="material-icons">
+            <a *ngIf="content?.markAsReadStatus ===1" matTooltip="mark as unread?" style="font-size: 15px; color:rgb(163, 163, 7)" class="material-icons">
               sentiment_very_satisfied
             </a>
-            <a *ngIf="content?.markAsReadStatus !==1" matTooltip="mark as read?" style="font-size: 15px; color:black" class="material-icons">
+            <a *ngIf="content?.markAsReadStatus !==1" matTooltip="mark as read?" style="font-size: 15px; color:rgb(163, 163, 7)" class="material-icons">
               sentiment_very_dissatisfied
             </a>
           </mat-card-title>
@@ -30,26 +30,39 @@
         <mat-card-actions>
           <ion-row>
             <ion-col size="4">
-              <button *ngIf="content?.contentLikeStatus !==1" (click)="likedContent()"  mat-button color="warn" matTooltip="liked">
+              <a *ngIf="content?.markAsReadStatus !==1" matTooltip="liked" (click)="likedContent()" >
+                <i  class="material-icons" style="font-size: 24px; color:red">favorite_border</i>  <span  class="small-font"> {{content?.totalLike}}</span>
+              </a>
+              <a *ngIf="content?.markAsReadStatus ===1" matTooltip="unliked" (click)="likedContent()" >
+                <i  class="material-icons" style="font-size: 24px; color:red">favorite</i> <span class="small-font"> {{content?.totalLike}}</span> 
+              </a> 
+              <!-- <button *ngIf="content?.contentLikeStatus !==1" (click)="likedContent()"  mat-button color="warn" matTooltip="liked">
                 <mat-icon>favorite_border </mat-icon><strong style="margin-left: 2px;">{{content?.totalLike}}</strong>
-              </button>
-              <button *ngIf="content?.contentLikeStatus ===1" (click)="likedContent()"  mat-button color="warn" matTooltip="unliked">
+              </button> -->
+              <!-- <button *ngIf="content?.contentLikeStatus ===1" (click)="likedContent()"  mat-button color="warn" matTooltip="unliked">
                 <mat-icon>favorite</mat-icon><strong style="margin-left: 2px;">{{content?.totalLike}}</strong>
-              </button>
+              </button> -->
             </ion-col>
             <ion-col size="4">
-              <button   mat-button color="primary" matTooltip="comment">
+              <!-- <button   mat-button color="primary" matTooltip="comment">
                 <mat-icon>comment</mat-icon><strong style="margin-left: 2px;">{{content?.totalComment}}</strong>
-              </button>
+              </button> -->
+              <a  matTooltip="comment"  >
+                <i style="font-size: 24px; color:rgb(64, 99, 197)"  class="material-icons">comment </i> <span  class="small-font"> {{content?.totalComment}}</span>
+              </a> 
             </ion-col>
             <ion-col size="4">
-              <button   mat-button  matTooltip="view">
+              <!-- <button   mat-button  matTooltip="view">
                 <mat-icon>visibility</mat-icon><strong style="margin-left: 2px;">{{content?.totalRead}}</strong>
-              </button>
+              </button> -->
+              <a  matTooltip="comment"  >
+                <i style="font-size: 24px; color:green"  class="material-icons">visibility </i> <span  class="small-font"> {{content?.totalRead}}</span>
+              </a> 
             </ion-col>
           </ion-row>
         </mat-card-actions>
       </mat-card>
-      <app-user-not-sign-in *ngIf="!isLogin"></app-user-not-sign-in>
-      <app-user-comment></app-user-comment>
+      <!-- <app-user-not-sign-in *ngIf="!isLogin"></app-user-not-sign-in> -->
+      <mat-label>comments</mat-label>
+      <app-user-comment [content] ="content"></app-user-comment>
 </ion-content>

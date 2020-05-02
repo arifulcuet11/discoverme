@@ -7,6 +7,8 @@ import { ContentLikeService } from 'src/app/share/services/content-like/content-
 import { ContentLike } from '../models/content-like';
 import { ContentAsReadService } from 'src/app/share/services/mark-as-read/content-as-read.service';
 import { MarkAsRead } from '../models/mark-as-read';
+import { ToastController } from '@ionic/angular';
+import { AppConstant } from 'src/app/share/appconstant/appconstant';
 
 @Component({
   selector: 'app-content-view-items',
@@ -29,7 +31,8 @@ export class ContentViewItemsComponent implements OnInit {
               private activeRoute: ActivatedRoute,
               private contentService: ContentService,
               private contentLikeService: ContentLikeService,
-              private markAsReadService: ContentAsReadService) {
+              private markAsReadService: ContentAsReadService,
+              public toastController: ToastController) {
    }
 
   ngOnInit() {
@@ -44,33 +47,49 @@ export class ContentViewItemsComponent implements OnInit {
     const model = JSON.parse(this.storageService.getItem(this.storageService.ItemView));
     this.content = model.content;
     await this.contentService.getById(this.id).subscribe(res => {
-        this.content.totalLike = res.totalLike;
-        this.content.totalRead = res.totalRead;
-        this.content.totalComment = res.totalComment;
-        this.content.contentLikeStatus = res.contentLikeStatus;
-        this.content.markAsReadStatus = res.markAsReadStatus;
+       this.content.totalLike = res.totalLike;
+       this.content.totalRead = res.totalRead;
+       this.content.totalComment = res.totalComment;
+       this.content.contentLikeStatus = res.contentLikeStatus;
+       this.content.markAsReadStatus = res.markAsReadStatus;
      });
   }
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: AppConstant.NotLoginMessage,
+      duration: 1000,
+      color: 'dark'
+    });
+    toast.present();
+  }
  async markAsRead() {
-    this.markAsReadModel = {
+   if (!this.isLogin) {
+     this.presentToast();
+     return 0;
+   }
+   this.markAsReadModel = {
       id : 0,
       status: this.content.markAsReadStatus === 1 ? 0 : 1,
       contentId: this.content.id
     };
-    this.content.markAsReadStatus = this.content.markAsReadStatus === 1 ? 0 : 1;
-    await this.markAsReadService.addMarkAsRead(this.markAsReadModel).subscribe(res => {
+   this.content.markAsReadStatus = this.content.markAsReadStatus === 1 ? 0 : 1;
+   await this.markAsReadService.addMarkAsRead(this.markAsReadModel).subscribe(res => {
 
     });
   }
  async likedContent() {
-    this.contentLike = {
+  if (!this.isLogin) {
+    this.presentToast();
+    return 0;
+  }
+  this.contentLike = {
       id : 0,
       status: this.content.contentLikeStatus === 1 ? 0 : 1,
       contentId: this.content.id
     };
-    this.content.contentLikeStatus = this.content.contentLikeStatus === 1 ? 0 : 1;
-    this.content.totalLike = this.content.contentLikeStatus === 1 ?  this.content.totalLike + 1 : this.content.totalLike - 1;
-    await this.contentLikeService.addContentLike(this.contentLike).subscribe( res => {
+  this.content.contentLikeStatus = this.content.contentLikeStatus === 1 ? 0 : 1;
+  this.content.totalLike = this.content.contentLikeStatus === 1 ?  this.content.totalLike + 1 : this.content.totalLike - 1;
+  await this.contentLikeService.addContentLike(this.contentLike).subscribe( res => {
 
     });
   }

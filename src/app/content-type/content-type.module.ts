@@ -5,7 +5,7 @@ import { ContentTypeComponent } from './content-type.component';
 import { SubCatagoryComponent } from './sub-catagory/sub-catagory.component';
 import { ContentItemsComponent } from './content-items/content-items.component';
 import { DailogFilterContentTypeComponent } from './dailog-filter-content-type/dailog-filter-content-type.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgMatModule } from '../share/ngMat/ngMat.module';
@@ -29,6 +29,7 @@ import { UserNotSignInComponent } from './user-not-sign-in/user-not-sign-in.comp
     IonicModule,
     RouterModule,
     NgMatModule,
+    ReactiveFormsModule,
     ContentTypeRoutingModule
   ],
   entryComponents: [
