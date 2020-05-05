@@ -14,12 +14,14 @@
         </div>
       </div>
     </div>
-    <ion-buttons  slot="end"   >
-      <ion-icon (click)="filter()"  name="options" style="margin-right: 5px;"></ion-icon>
-  </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="filter()">
+      <ion-icon name="filter-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
   <div *ngFor="let item of totalContentsList; let i = index">
     <ion-item style="background-color: ghostwhite;">
       <ion-avatar slot="start">
