@@ -41,6 +41,7 @@ export class ContentViewItemsComponent implements OnInit {
       this.getContent();
       this.updateViewCount();
       this.isLogin = this.storageService.getItem(this.storageService.IsLogin) === 'true' ? true : false;
+      this.communicationService.showTopnavigationBar.emit(false);
     });
   }
   async getContent() {

@@ -17,7 +17,7 @@ export class ContentService {
     return this.http.get(this.routePrefix + '/sub-catagory/' + id);
   }
   Search(text: string, index: number, size: number, contentTypeId: number): Observable<any> {
-    return this.http.get(this.routePrefix + '/searchFromAPP?text=' + text + '&index=' + index
+    return this.http.get(this.routePrefix + '/search/contentType?text=' + text + '&index=' + index
      + '&size=' + size + '&contentTypeId=' + contentTypeId);
   }
   getRecent(index: number, size: number): Observable<any> {
@@ -25,7 +25,7 @@ export class ContentService {
      + '&size=' + size);
   }
   getTop5(): Observable<any> {
-    return this.http.get(this.routePrefix + '/deshboard/mobile/');
+    return this.http.get(this.routePrefix + '/deshboard/mobile/top5');
   }
   add(data): Observable<any> {
     return this.http.post(this.routePrefix + '/add', data);

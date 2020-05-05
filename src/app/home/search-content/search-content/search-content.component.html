@@ -4,11 +4,18 @@
       <ion-back-button (click)="backButton()" defaultHref="/" style="margin-right: 5px;"></ion-back-button>
     </ion-buttons>
     <!-- <ion-searchbar></ion-searchbar> -->
-    <mat-form-field appearance="outline"  class="example-full-width" >
+    <!-- <mat-form-field appearance="outline"  class="example-full-width" >
       <input matInput [(ngModel)]="text" placeholder="search" (keyup.enter)="enterClick()">
-    </mat-form-field>
-    <ion-buttons (click)="filter()"  slot="end"   >
-      <ion-icon name="options" style="margin-right: 5px;"></ion-icon>
+    </mat-form-field> -->
+    <div class="container h-100">
+      <div class="d-flex justify-content-center h-100">
+        <div class="searchbar">
+          <input class="search_input" type="text" name="" [(ngModel)]="text" placeholder="search..." (keyup.enter)="enterClick()">
+        </div>
+      </div>
+    </div>
+    <ion-buttons  slot="end"   >
+      <ion-icon (click)="filter()"  name="options" style="margin-right: 5px;"></ion-icon>
   </ion-buttons>
   </ion-toolbar>
 </ion-header>

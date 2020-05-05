@@ -3,7 +3,9 @@
     <ion-buttons slot="start">
       <ion-back-button  defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{headerName}}</ion-title>
+    <ion-searchbar [(ngModel)]="text" (keyup.enter)="enterClick()"   [placeholder]="headerName"
+     class="search" animated></ion-searchbar>
+    <!-- <ion-title>{{headerName}}</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
@@ -13,15 +15,7 @@
       <ion-icon name="filter-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-  <ion-row>
-    <ion-col size="10">
-      <ion-searchbar [(ngModel)]="text" (keyup.enter)="enterClick()" class="search"></ion-searchbar>
-    </ion-col >
-    <ion-col size="2">
-
-    </ion-col>
-  </ion-row>
-  <div *ngFor="let item of totalContentsList; let i = index">
+  <div *ngFor="let item of contentViewList; let i = index">
     <ion-item style="background-color: ghostwhite;">
       <ion-avatar slot="start">
         <div  style="text-align:center">
@@ -29,17 +23,25 @@
         </div>
       </ion-avatar>
       <ion-label>
-        <h4><strong>{{item.title}}</strong></h4>
+        <h4><strong (click)="viewItem(item)">{{item.title}}</strong></h4>
         <small>{{item.providerName ===null? 'Admin' : item.providerName}},<strong [ngStyle]="{'color': item.colorCode}">{{item.catagoryName}}</strong></small>
-        <p> <button mat-button><span class="material-icons">
+        <div> <!-- <button mat-button (*ngIf)="item?.contentLikeStatus == 1"><span class="material-icons">
           favorite
-          </span>{{item.totalLike}}</button>
-        <button mat-button><span class="material-icons">
+          </span>{{item.totalLike}}</button> -->
+          <button mat-button (click)="likeContent(item)" class="love-icon">
+            <span *ngIf="item?.contentLikeStatus !== 1" class="material-icons">
+            favorite_border
+            </span>
+            <span *ngIf="item?.contentLikeStatus === 1" class="material-icons">
+              favorite
+              </span>
+            {{item.totalLike}}</button>
+        <button mat-button class="comment-icon" (click)="viewItem(item)"><span class="material-icons">
           comment
           </span>{{item.totalComment}}</button>
-          <button mat-button (click)="viewItem(item)"><span class="material-icons">
+          <button mat-button (click)="viewItem(item)" class="view-icon"><span class="material-icons">
             visibility
-            </span> {{item.totalRead}}</button></p>
+            </span> {{item.totalRead}}</button></div>
       </ion-label>
     </ion-item>
   </div>

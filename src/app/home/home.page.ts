@@ -31,26 +31,14 @@ export class HomePage implements OnInit {
     });
 
   }
-  swipe(eType) {
-    this.tab_num = this.tabs.length;
-    if (eType === this.SWIPE_ACTION.LEFT && this.selected >= 0 && this.selected < this.tab_num - 1) {
-      this.selected++;
-    } else if (eType === this.SWIPE_ACTION.RIGHT && this.selected > 0) {
-      this.selected --;
-    }
-    console.log(this.selected);
+  doRefresh(event) {
+      event.target.complete();
+      window.location.reload();
   }
   async searchModel() {
     const modal = await this.modalController.create({
       component: SearchContentComponent
     });
     return await modal.present();
-  }
-  doRefresh(event) {
-      event.target.complete();
-      window.location.reload();
-    //   this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
-    //     this.router.navigate(['/home']);
-    // }); 
   }
 }

@@ -18,6 +18,7 @@ import { MenuBeforeSigninComponent } from './left-menu/menu-before-signin/menu-b
 import { DailogLanguageComponent } from './left-menu/dailog-language/dailog-language.component';
 import { FormsModule } from '@angular/forms';
 import { ArrayFilterPipe } from './share/pipe/array-filter';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, MenuBeforeSigninComponent, DailogLanguageComponent, ArrayFilterPipe],
@@ -30,7 +31,8 @@ import { ArrayFilterPipe } from './share/pipe/array-filter';
     SlideshowModule,
     NgMatModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SuperTabsModule.forRoot(),
   ],
   providers: [
     StatusBar,

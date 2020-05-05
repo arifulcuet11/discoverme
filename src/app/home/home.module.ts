@@ -17,6 +17,8 @@ import { CatagoryComponent } from '../catagory/catagory.component';
 import { YourComponent } from './your/your.component';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { DailogFilterOptionComponent } from './search-content/dailog-filter-option/dailog-filter-option.component';
+import { SuperTabsModule } from '@ionic-super-tabs/angular';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { DailogFilterOptionComponent } from './search-content/dailog-filter-opti
       },
     ]),
     NgMatModule,
+    SuperTabsModule
   ],
   declarations: [
     HomePage,

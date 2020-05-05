@@ -30,10 +30,10 @@
         <mat-card-actions>
           <ion-row>
             <ion-col size="4">
-              <a *ngIf="content?.markAsReadStatus !==1" matTooltip="liked" (click)="likedContent()" >
+              <a *ngIf="content?.contentLikeStatus !==1" matTooltip="liked" (click)="likedContent()" >
                 <i  class="material-icons" style="font-size: 24px; color:red">favorite_border</i>  <span  class="small-font"> {{content?.totalLike}}</span>
               </a>
-              <a *ngIf="content?.markAsReadStatus ===1" matTooltip="unliked" (click)="likedContent()" >
+              <a *ngIf="content?.contentLikeStatus ===1" matTooltip="unliked" (click)="likedContent()" >
                 <i  class="material-icons" style="font-size: 24px; color:red">favorite</i> <span class="small-font"> {{content?.totalLike}}</span> 
               </a> 
               <!-- <button *ngIf="content?.contentLikeStatus !==1" (click)="likedContent()"  mat-button color="warn" matTooltip="liked">

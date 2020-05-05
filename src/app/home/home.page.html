@@ -14,29 +14,29 @@
     </ion-refresher>
   <app-sliding-image></app-sliding-image>
   <app-home-catagory></app-home-catagory>
- <mat-tab-group  mat-stretch-tabs [selectedIndex]="selected"  (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)" >
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon style="color: green;font-size:18px; margin-top: 5px;" class="example-tab-icon">thumb_up</mat-icon>
-      Top
-    </ng-template>
-    <app-top-story></app-top-story>
-  </mat-tab>
-  <mat-tab> 
-    <ng-template mat-tab-label>
-      <mat-icon style="color: blueviolet;font-size:18px; margin-top: 5px;" class="example-tab-icon">today</mat-icon>
-      Recent
-    </ng-template>
-    <app-recently-add></app-recently-add>
-  </mat-tab>
-  <!-- <mat-tab> 
-    <ng-template mat-tab-label>
-      <mat-icon style="color: cornflowerblue; font-size:18px; margin-top: 5px;" class="example-tab-icon">assignment_ind</mat-icon>
-      Your
-    </ng-template>
-    <app-your></app-your>
-   </mat-tab> -->
-</mat-tab-group>
+  <super-tabs>
+    <super-tabs-toolbar slot="top" class="super-tabs">
+      <super-tab-button>
+        <ion-label>Top Story</ion-label>    
+      </super-tab-button>
+      <super-tab-button>
+        <ion-label>Recenty Add</ion-label>    
+      </super-tab-button>
+    </super-tabs-toolbar>
+    <super-tabs-container>
+      <super-tab>
+        <ion-content>
+          <app-top-story></app-top-story>
+        </ion-content>
+      </super-tab>
+      <super-tab>
+        <ion-content>
+          <app-recently-add></app-recently-add>
+        </ion-content>
+      </super-tab>
+    </super-tabs-container>
+  </super-tabs>
+
 </ion-content>
 
 

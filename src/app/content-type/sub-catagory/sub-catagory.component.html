@@ -2,7 +2,7 @@
 <ion-row>
   <ion-col size="4" *ngFor="let item of subCatagories">
     <mat-card class="example-card" [routerLink]="['/content-type/sub-type', item.id, item.name]">
-      <img mat-card-image style="height: 50px;" [src]="item.url" onerror="this.src='./assets/images/default_profile.png';" >
+      <img mat-card-image style="height: 50px;" [src]="item.url" onerror="this.src='./assets/images/jokes.jpg';" >
       <mat-card-content>
         <p [ngStyle]="{'color': item.colorCode}" class="text-center">
           {{item.name}}
