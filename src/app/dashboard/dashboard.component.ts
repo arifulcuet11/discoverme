@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
       this.communicationService.showTopnavigationBar.emit(false);
       const isLogin = this.storageService.getItem(this.storageService.IsLogin) === 'true' ? true : false;
       if (!isLogin) {
-         this.route.navigate(['/login']);
+         this.route.navigate(['/login/display']);
        }
     });
   }

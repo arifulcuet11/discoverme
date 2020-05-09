@@ -36,9 +36,10 @@ export class HomePage implements OnInit {
       window.location.reload();
   }
   async searchModel() {
-    const modal = await this.modalController.create({
-      component: SearchContentComponent
-    });
-    return await modal.present();
+    // const modal = await this.modalController.create({
+    //   component: SearchContentComponent
+    // });
+    // return await modal.present();
+    this.router.navigate(['/home/search']);
   }
 }

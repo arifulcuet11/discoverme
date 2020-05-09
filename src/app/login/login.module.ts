@@ -8,11 +8,17 @@ import { IonicModule } from '@ionic/angular';
 import { LoginRoutingModule } from './login-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { LoginRegistrationPageComponent } from './login-registration-page/login-registration-page.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegistrationComponent, ForgotPassowordComponent],
+  declarations: [
+     LoginComponent,
+     RegistrationComponent,
+     ForgotPassowordComponent,
+     LoginRegistrationPageComponent
+    ],
   imports: [
     CommonModule,
     NgMatModule,

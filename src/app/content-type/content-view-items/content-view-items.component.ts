@@ -21,6 +21,7 @@ export class ContentViewItemsComponent implements OnInit {
   isLogin: any;
   contentLike: ContentLike;
   markAsReadModel: MarkAsRead;
+  backUrl: any;
   slideOpts = {
     initialSlide: 1,
     speed: 400
@@ -47,6 +48,7 @@ export class ContentViewItemsComponent implements OnInit {
   async getContent() {
     const model = JSON.parse(this.storageService.getItem(this.storageService.ItemView));
     this.content = model.content;
+    this.backUrl = model.hrefb ? model.hrefb : '/';
     await this.contentService.getById(this.id).subscribe(res => {
        this.content.totalLike = res.totalLike;
        this.content.totalRead = res.totalRead;

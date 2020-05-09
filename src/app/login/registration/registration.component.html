@@ -1,45 +1,36 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button (click)="backButton()" defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>
-      Sign Up
-    </ion-title>
+    <ion-title>Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div>
+<ion-content>
+  <form [formGroup]="registrationForm">
+    <ion-item lines="full">
+      <ion-label position="floating">Full Name</ion-label>
+      <ion-input formControlName="name" type="text" required></ion-input>
+    </ion-item>
 
-  </div>
-  <mat-card class="example-card mt-300">
-    <mat-card-title>User Registration</mat-card-title>
-    <mat-card-content>
-      <form [formGroup]="registrationForm">
-        <mat-form-field appearance="outline" class="example-full-width">
-          <mat-label>Full Name</mat-label>
-          <input formControlName="name" type="text" matInput placeholder="name" >
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input formControlName="email" type="text" matInput placeholder="email" >
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="example-full-width">
-          <mat-label>Passwors</mat-label>
-          <input formControlName="password" type="password" matInput placeholder="password" >
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="example-full-width">
-          <mat-label>Confirm Password</mat-label>
-          <input formControlName="confirmPassword" type="password" matInput placeholder="confirm password" >
-        </mat-form-field>
-        <p *ngFor="let item of error" class="error">
-          {{ item }}
-        </p>
-        <div class="button">
-          <button type="submit" [disabled]="!registrationForm.valid" class="example-full-width" (click)="submit()" color="success" mat-raised-button>Submit</button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email" type="email" required></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input formControlName="password" type="password" required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input formControlName="confirmPassword" type="password" required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button  [disabled]="!registrationForm.valid" (click)="submit()" color="danger" expand="block">Sign Up</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>

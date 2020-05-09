@@ -18,6 +18,7 @@ import { YourComponent } from './your/your.component';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { DailogFilterOptionComponent } from './search-content/dailog-filter-option/dailog-filter-option.component';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { SuperTabsModule } from '@ionic-super-tabs/angular';
     IonicModule,
     SlideshowModule,
     CatagoryModule,
+    HomeRoutingModule,
     RouterModule.forChild([
       {
         path: '',

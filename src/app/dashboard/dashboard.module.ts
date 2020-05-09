@@ -9,15 +9,18 @@ import { DashboardMenuComponent } from './dashboard-menu/dashboard-menu.componen
 import { NgMatModule } from '../share/ngMat/ngMat.module';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
-
-
+import { DailogEditInfoComponent } from './edit-profile/dailog-edit-info/dailog-edit-info.component';
+import { MatDialogRef, MAT_DIALOG_DATA, MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material';
+import { DailogEidtContactComponent } from './edit-profile/dailog-eidt-contact/dailog-eidt-contact.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     DashboardMenuComponent,
     EditProfileComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    DailogEditInfoComponent,
+    DailogEidtContactComponent,
   ],
   imports: [
     CommonModule,
@@ -26,8 +29,14 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     DashboardRoutingModule,
     RouterModule,
     ReactiveFormsModule,
-    NgMatModule
+    NgMatModule,
   ],
-  entryComponents: [DashboardMenuComponent]
+  entryComponents: [DashboardMenuComponent, DailogEditInfoComponent, DailogEidtContactComponent],
+  providers:[
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },
+    { provide: MatBottomSheetRef, useValue: {} },
+    { provide: MAT_BOTTOM_SHEET_DATA, useValue: {} },
+  ]
 })
 export class DashboardModule { }

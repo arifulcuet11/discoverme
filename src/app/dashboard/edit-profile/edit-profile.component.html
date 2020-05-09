@@ -8,4 +8,57 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="container card">
+    <div class="avatar-upload">
+        <div class="avatar-preview float-center">
+            <div id="imagePreview" [ngStyle]="{'background-image': profileimage}">
+              <span (click)="takePicture()"><ion-icon name="camera-outline"></ion-icon></span>
+            </div>
+        </div>
+    </div>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Personal Information 
+    </mat-card-subtitle><ion-icon (click)="openInfoBottomSheet()" color="danger" name="create-outline"></ion-icon>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon><ion-icon color="primary" name="person-outline"></ion-icon></mat-icon>
+        <div mat-line>Name</div>
+        <div mat-line> {{user.name}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon><ion-icon color="tertiary" name="transgender-outline"></ion-icon></mat-icon>
+        <div mat-line>Gender</div>
+        <div mat-line *ngIf="user.genderId == 1"> Male</div>
+        <div mat-line *ngIf="user.genderId == 2"> Female</div>
+        <div mat-line *ngIf="user.genderId == 3"> Other</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-subtitle>Contact Information
+    </mat-card-subtitle><ion-icon color="danger" (click)="openContactBottomSheet()" name="create-outline"></ion-icon>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon><ion-icon color="success" name="call-outline"></ion-icon></mat-icon>
+        <div mat-line>phone Number</div>
+        <div mat-line> {{user.phoneNumber}}</div>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon><ion-icon color="warning" name="mail-outline"></ion-icon></mat-icon>
+        <div mat-line>Email</div>
+        <div mat-line> {{user.email}}</div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
 </ion-content>
