@@ -4,6 +4,8 @@ import { MenuController } from '@ionic/angular';
 import { StorageService } from 'src/app/share/services/storage/storage.service';
 import { Language, MenuList } from '../dailog-language/models/language';
 import { CommunicationService } from 'src/app/share/services/communication/communication.service';
+import { DailogLanguageComponent } from '../dailog-language/dailog-language.component';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -16,6 +18,7 @@ export class MenuBeforeSigninComponent implements OnInit {
   menuList: any = [];
   constructor(private router: Router,
               private menu: MenuController,
+              public dialog: MatDialog,
               private storageService: StorageService,
               private communicationService: CommunicationService) { }
 
@@ -38,6 +41,28 @@ export class MenuBeforeSigninComponent implements OnInit {
     this.language = this.communicationService.languageInfo.subscribe( res => {
       this.menuList = res === Language.Bangla ? new MenuList().getBeforeBanglaMenuList() : new MenuList().getBeforeEnglistMenuList();
     });
+  }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DailogLanguageComponent, {
+      width: '250px',
+      data: []
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+  clickMenu(menu: any) {
+    if (menu.code === 'M-01') {
+       this.menu.close();
+       this.router.navigate(['/home']);
+     } else if (menu.code === 'M-08') {
+       this.menu.close();
+       this.router.navigate(['/login']);
+     } else if (menu.code === 'M-05') {
+       this.menu.close(); 
+       this.openDialog();
+    }
+
   }
 
 }

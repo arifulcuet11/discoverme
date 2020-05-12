@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material';
 import { AuthService } from 'src/app/share/services/login/auth.service';
+import { LoadingService } from 'src/app/share/services/loader/loader.service';
+import { MessageService } from 'src/app/share/services/message/message.service';
 
 @Component({
   selector: 'app-dailog-eidt-contact',
@@ -22,7 +24,10 @@ export class DailogEidtContactComponent implements OnInit {
   constructor( private fb: FormBuilder,
                @Inject(MAT_BOTTOM_SHEET_DATA) public data: any,
                private _bottomSheetRef: MatBottomSheetRef<DailogEidtContactComponent>,
-               private authService: AuthService) { }
+               private authService: AuthService,
+               private messageService: MessageService,
+               private loadingService: LoadingService,
+              ) { }
 
   ngOnInit() {
     this.userEditForm.patchValue({
@@ -35,9 +40,14 @@ export class DailogEidtContactComponent implements OnInit {
   }
 
   updateInfo() {
+    this.loadingService.loadingPresent();
     this.userEditForm.value.genderId = Number(this.userEditForm.value.genderId);
     this.authService.updateInfo(this.userEditForm.value).subscribe( res => {
         this._bottomSheetRef.dismiss(this.userEditForm.value);
+        this.loadingService.loadingDismiss();
+     }, err => {
+        this.messageService.presentToast(this.messageService.generalFail, 'danger');
+        this.loadingService.loadingDismiss();
      });
   }
 

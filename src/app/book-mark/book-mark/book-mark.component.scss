@@ -1,0 +1,41 @@
+.fixed-button{
+    position: fixed;
+    margin-top: 5px;
+}
+.item-class{
+    font-size: 14px;
+}
+.mat-list-base {
+     padding-top: 0px!important; 
+}
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+    background-color: white !important;
+  }
+  .dot {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-width: 3px;
+    box-shadow: 0 2px #999;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+  }
+  .dot:hover {background-color: #3e8e41}
+  
+  .dot:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+  .navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }

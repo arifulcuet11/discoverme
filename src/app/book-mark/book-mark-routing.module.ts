@@ -1,19 +1,17 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { CatagoryComponent } from './catagory.component';
-
-
+import { BookMarkComponent } from './book-mark/book-mark.component';
 
 const routes: Routes = [
-   { path: 'abc', component: CatagoryComponent },
+   { path: '', component: BookMarkComponent },
 ];
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     RouterModule.forChild(routes),
+
   ],
 })
-export class CatagoryRoutingModule { }
+export class BookMarkRoutingModule { }

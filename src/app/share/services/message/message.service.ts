@@ -8,6 +8,7 @@ export class MessageService {
 
   public  changePassword = 'password has been changed.' ;
   public  changePasswordFail = 'password changed failed.' ;
+  public  generalFail = 'something wrong.' ;
   constructor( public toastController: ToastController) { }
   async presentToast( msg: any, tColor: any) {
     const toast = await this.toastController.create({

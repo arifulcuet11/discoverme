@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Bookmark</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <super-tabs>
+    <super-tabs-toolbar slot="top" scrollable>
+      <super-tab-button *ngFor="let cat of catagories">
+        <ion-label> {{cat.banglaName}}</ion-label>    
+      </super-tab-button>
+    </super-tabs-toolbar>
+    <super-tabs-container>
+
+      <super-tab *ngFor="let cat of catagories">
+        <ion-content>
+          <div *ngFor="let item of bookMarkList | filter: 'catagoryId': cat.id  ; let i = index">
+            <ion-item style="background-color: ghostwhite;">
+              <ion-avatar slot="start">
+                <div  style="text-align:center">
+                  <span  [ngStyle]="{'background-color': item.colorCode}" class="dot"><small>{{i+1}}</small></span>
+                </div>
+              </ion-avatar>
+              <ion-label>
+                <h4><strong (click)="viewItem(item)">{{item.title}}</strong></h4>
+                <small>{{item.providerName ===null? 'Admin' : item.providerName}},<strong [ngStyle]="{'color': item.colorCode}">{{item.catagoryName}}</strong></small>
+                <div> <!-- <button mat-button (*ngIf)="item?.contentLikeStatus == 1"><span class="material-icons">
+                  favorite
+                  </span>{{item.totalLike}}</button> -->
+                  <button mat-button (click)="likeContent(item)" class="love-icon">
+                    <span *ngIf="item?.contentLikeStatus !== 1" class="material-icons">
+                    favorite_border
+                    </span>
+                    <span *ngIf="item?.contentLikeStatus === 1" class="material-icons">
+                      favorite
+                      </span>
+                    {{item.totalLike}}</button>
+                <button mat-button class="comment-icon" (click)="viewItem(item)"><span class="material-icons">
+                  comment
+                  </span>{{item.totalComment}}</button>
+                  <button mat-button (click)="viewItem(item)" class="view-icon"><span class="material-icons">
+                    visibility
+                    </span> {{item.totalRead}}</button></div>
+              </ion-label>
+              <button mat-button float-right><ion-icon color="danger" name="trash-outline"></ion-icon></button>
+            </ion-item>
+          </div>
+        </ion-content>
+      </super-tab>
+    </super-tabs-container>
+  </super-tabs>
+</ion-content>
+

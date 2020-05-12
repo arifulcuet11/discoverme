@@ -19,7 +19,13 @@ import { ArrayFilterPipe } from '../share/pipe/array-filter';
     FormsModule,
     IonicModule,
     RouterModule,
-    NgMatModule
+    NgMatModule,
+    RouterModule.forChild([
+      {
+        path: 'catagory',
+        component: CatagoryComponent,
+      },
+    ]),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

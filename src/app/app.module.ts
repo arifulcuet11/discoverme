@@ -17,7 +17,6 @@ import { NgMatModule } from './share/ngMat/ngMat.module';
 import { MenuBeforeSigninComponent } from './left-menu/menu-before-signin/menu-before-signin.component';
 import { DailogLanguageComponent } from './left-menu/dailog-language/dailog-language.component';
 import { FormsModule } from '@angular/forms';
-import { ArrayFilterPipe } from './share/pipe/array-filter';
 import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { File } from '@ionic-native/file/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
@@ -27,7 +26,6 @@ import { Camera } from '@ionic-native/camera/ngx';
     MenuComponent,
     MenuBeforeSigninComponent,
     DailogLanguageComponent,
-    ArrayFilterPipe,
   ],
   entryComponents: [
     MenuComponent,

@@ -12,14 +12,20 @@
 <ion-content fullscreen class="ion-padding">
       <mat-card class="example-card">
         <mat-card-header>
-          <mat-card-title class="card-container-center" (click)="markAsRead()"> {{content?.title}}
-            <a *ngIf="content?.markAsReadStatus ===1" matTooltip="mark as unread?" style="font-size: 15px; color:rgb(163, 163, 7)" class="material-icons">
-              sentiment_very_satisfied
-            </a>
-            <a *ngIf="content?.markAsReadStatus !==1" matTooltip="mark as read?" style="font-size: 15px; color:rgb(163, 163, 7)" class="material-icons">
-              sentiment_very_dissatisfied
-            </a>
-          </mat-card-title>
+          <mat-card-title class="card-container-center" > {{content?.title}}
+            <button (click)="markAsRead()" mat-icon-button *ngIf="content?.markAsReadStatus ===1" matTooltip="mark as unread?" style="font-size: 15px; color:rgb(163, 163, 7)">
+              <mat-icon>  sentiment_very_satisfied</mat-icon>
+            </button>
+            <button (click)="markAsRead()" mat-icon-button *ngIf="content?.markAsReadStatus !==1" matTooltip="mark as read?" style="font-size: 15px; color:rgb(163, 163, 7)">
+              <mat-icon> sentiment_very_dissatisfied</mat-icon>
+            </button>
+            <button matTooltip="bookmark" (click)="bookMark()" *ngIf="content?.bookMarkStatus !==1" mat-icon-button>
+              <ion-icon color="danger" name="bookmark-outline"></ion-icon>
+            </button>
+            <button matTooltip="unbookmarked" [disabled] ="true" (click)="bookMark()" *ngIf="content?.bookMarkStatus ===1" mat-icon-button>
+              <ion-icon name="bookmark" color="danger"></ion-icon>
+            </button>
+          </mat-card-title> 
           <mat-card-subtitle class="card-container-center">{{content?.providerName}}</mat-card-subtitle>
         </mat-card-header>
         <mat-divider></mat-divider>

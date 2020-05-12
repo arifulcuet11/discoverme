@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { StorageService } from 'src/app/share/services/storage/storage.service';
 import { AuthService } from 'src/app/share/services/login/auth.service';
 import { MessageService } from 'src/app/share/services/message/message.service';
+import { LoadingService } from 'src/app/share/services/loader/loader.service';
 
 @Component({
   selector: 'app-change-password',
@@ -28,7 +29,8 @@ export class ChangePasswordComponent implements OnInit {
                  private storageService: StorageService,
                  private authService: AuthService,
                  private route: Router,
-                 private messageService: MessageService ) { }
+                 private messageService: MessageService,
+                 private loadingService: LoadingService ) { }
 
   ngOnInit() {
     this.activeRouter.params.subscribe((params: Params) => {
@@ -45,12 +47,15 @@ export class ChangePasswordComponent implements OnInit {
     }
   }
   changePasword() {
+    this.loadingService.loadingPresent();
     this.authService.changePassword(this.changePasswordForm.value).subscribe(res => {
          this.storageService.removeItem(this.storageService.TOKEN_KEY);
          this.storageService.removeItem(this.storageService.User);
          this.messageService.presentToast(this.messageService.changePassword, 'dark');
          this.route.navigate(['/login/display']);
+         this.loadingService.loadingDismiss();
     }, err => {
+      this.loadingService.loadingDismiss();
       this.messageService.presentToast(this.messageService.changePasswordFail, 'danger');
     });
   }
