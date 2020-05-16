@@ -9,6 +9,7 @@ import { ContentLikeService } from 'src/app/share/services/content-like/content-
 import { StorageService } from 'src/app/share/services/storage/storage.service';
 import { AppConstant } from 'src/app/share/appconstant/appconstant';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/share/services/loader/loader.service';
 
 @Component({
   selector: 'app-search-content',
@@ -54,6 +55,7 @@ infiniteScroll: IonInfiniteScroll;
                 public toastController: ToastController,
                 private contentLikeService: ContentLikeService,
                 private storageService: StorageService,
+                private loadingService: LoadingService,
                 private route: Router) { }
 
   ngOnInit() {
@@ -115,6 +117,7 @@ infiniteScroll: IonInfiniteScroll;
     });
   }
   search(isScroling: boolean) {
+    this.loadingService.loadingPresent();
     this.catagoryIds = '';
     this.catagoryList.forEach(ele => {
          if (ele.isChecked === true) {
@@ -130,6 +133,10 @@ infiniteScroll: IonInfiniteScroll;
       } else {
         this.totalContentsList = this.contents;
       }
+
+      this.loadingService.loadingDismiss();
+    }, err => {
+      this.loadingService.loadingDismiss();
     });
   }
   enterClick() {

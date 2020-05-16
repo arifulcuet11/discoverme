@@ -61,6 +61,7 @@ export class ContentViewItemsComponent implements OnInit {
       this.content.totalComment = res.totalComment;
       this.content.contentLikeStatus = res.contentLikeStatus;
       this.content.markAsReadStatus = res.markAsReadStatus;
+      this.content.bookMarkStatus = res.bookMarkStatus;
     });
   }
   async presentToast() {

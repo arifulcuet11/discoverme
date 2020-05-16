@@ -1,0 +1,13 @@
+<ion-card>
+  <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" height="100px" width="100%" />
+  <ion-card-header>
+    <ion-card-title class="header-text">Funny Mems</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-slides class="image-slider" loop="true" slidesPerView="3">
+      <ion-slide *ngFor="let img of images">
+        <img (click)="viewPhoto('https://material.angular.io/assets/img/examples/shiba2.jpg')" src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="thumb-img" photoViewer/>
+      </ion-slide>
+    </ion-slides>
+  </ion-card-content>
+</ion-card>

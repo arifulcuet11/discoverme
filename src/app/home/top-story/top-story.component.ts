@@ -6,6 +6,7 @@ import { ContentLikeService } from 'src/app/share/services/content-like/content-
 import { AppConstant } from 'src/app/share/appconstant/appconstant';
 import { StorageService } from 'src/app/share/services/storage/storage.service';
 import { Router } from '@angular/router';
+import { LoadingService } from 'src/app/share/services/loader/loader.service';
 
 @Component({
   selector: 'app-top-story',
@@ -22,6 +23,7 @@ export class TopStoryComponent implements OnInit {
               public toastController: ToastController,
               private contentLikeService: ContentLikeService,
               private storageService: StorageService,
+              private loadingService: LoadingService,
               private route: Router ) { }
 
   ngOnInit() {
@@ -56,6 +58,7 @@ export class TopStoryComponent implements OnInit {
       });
   }
   getTop5Content() {
+    this.loadingService.loadingPresent();
     this.contentService.getTop5().subscribe(res => {
        this.topContents = res;
        this.topCatagory = Array.from(new Set(this.topContents.map(s => s.catagoryId))).map(catagoryId => {
@@ -65,7 +68,9 @@ export class TopStoryComponent implements OnInit {
              colorCode: this.topContents.filter(x => x.catagoryId === catagoryId)[0].colorCode,
            };
        });
-       console.log(this.topCatagory);
+       this.loadingService.loadingDismiss();
+    }, err =>{
+      this.loadingService.loadingDismiss();
     });
   }
   viewItem(item: any) {

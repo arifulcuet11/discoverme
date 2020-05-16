@@ -7,7 +7,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 
 
 const routes: Routes = [
-   { path: 'dash-board', component: DashboardComponent },
+   { path: '', component: DashboardComponent },
    { path: 'edit-profile', component: EditProfileComponent },
    { path: 'change-password', component: ChangePasswordComponent },
 ];

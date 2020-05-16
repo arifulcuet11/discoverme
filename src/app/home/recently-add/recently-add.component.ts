@@ -5,6 +5,7 @@ import { ContentLikeService } from 'src/app/share/services/content-like/content-
 import { StorageService } from 'src/app/share/services/storage/storage.service';
 import { Router } from '@angular/router';
 import { AppConstant } from 'src/app/share/appconstant/appconstant';
+import { LoadingService } from 'src/app/share/services/loader/loader.service';
 
 @Component({
   selector: 'app-recently-add',
@@ -24,6 +25,7 @@ export class RecentlyAddComponent implements OnInit {
               public toastController: ToastController,
               private contentLikeService: ContentLikeService,
               private storageService: StorageService,
+              private loadingService: LoadingService,
               private route: Router ) {}
 
   ngOnInit() {
@@ -79,6 +81,7 @@ export class RecentlyAddComponent implements OnInit {
         this.totalContentsList = this.totalContentsList.concat(this.contents);
         this.index = this.index + 1;
         this.pageSize = 10;
+      }, err => {
       });
   }
   viewItem(item: any) {

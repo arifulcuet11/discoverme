@@ -10,6 +10,8 @@ import { Router, Params, ActivatedRoute } from '@angular/router';
 import { StorageService } from 'src/app/share/services/storage/storage.service';
 import { CommunicationService } from 'src/app/share/services/communication/communication.service';
 import { Route } from '@angular/compiler/src/core';
+import { LoadingService } from 'src/app/share/services/loader/loader.service';
+import { MessageService } from 'src/app/share/services/message/message.service';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +23,15 @@ export class LoginComponent implements OnInit {
     email: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
+  newHide = true;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private storageService: StorageService,
     private route: Router,
     private activeRouter: ActivatedRoute,
+    private loadingService: LoadingService,
+    private messageService: MessageService,
     private communicationService: CommunicationService
   ) {}
 
@@ -40,6 +45,7 @@ export class LoginComponent implements OnInit {
     this.communicationService.showTopnavigationBar.emit(true);
   }
   login() {
+    this.loadingService.loadingPresent();
     this.authService.login(this.loginForm.value).subscribe((res) => {
       this.storageService.setItem(this.storageService.TOKEN_KEY, res.token);
       this.storageService.setItem(
@@ -50,9 +56,13 @@ export class LoginComponent implements OnInit {
       this.storageService.setItem(this.storageService.IsLogin, true);
       this.communicationService.loginLogoutInfo.emit(true);
       this.communicationService.showTopnavigationBar.emit(true);
+      this.loadingService.loadingDismiss();
       setTimeout(() => {
         this.route.navigate(['/home']);
       }, 1000);
+    }, err => {
+      this.loadingService.loadingDismiss();
+      this.messageService.presentToast('email or password wrong.', 'danger');
     });
   }
 }

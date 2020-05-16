@@ -7,7 +7,6 @@ export class ArrayFilterPipe implements PipeTransform {
 
   transform(items: any[],  fieldName: string, searchText: string): any[] {
 
-    console.log(fieldName, searchText);
     // return empty array if array is falsy
     if (!items) { return []; }
 

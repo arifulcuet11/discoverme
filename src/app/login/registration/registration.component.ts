@@ -54,7 +54,6 @@ export class RegistrationComponent implements OnInit {
       },
       (err) => {
         this.error = err.error.split(',');
-        console.log(this.error);
       }
     );
   }

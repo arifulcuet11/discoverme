@@ -8,6 +8,7 @@ import { CommunicationService } from 'src/app/share/services/communication/commu
 import { StorageService } from 'src/app/share/services/storage/storage.service';
 import { AppConstant } from 'src/app/share/appconstant/appconstant';
 import { ContentLikeService } from 'src/app/share/services/content-like/content-like.service';
+import { LoadingService } from 'src/app/share/services/loader/loader.service';
 
 @Component({
   selector: 'app-content-items',
@@ -48,6 +49,7 @@ export class ContentItemsComponent implements OnInit {
     private storageService: StorageService,
     public toastController: ToastController,
     private contentLikeService: ContentLikeService,
+    private loadingService: LoadingService,
   ) {}
 
   ngOnInit() {
@@ -121,6 +123,7 @@ export class ContentItemsComponent implements OnInit {
     this.openDialog();
   }
   search(isScroling: boolean) {
+    this.loadingService.loadingPresent();
     this.contentService
       .Search(this.text, this.index, this.pageSize, this.id)
       .subscribe((res) => {
@@ -130,7 +133,10 @@ export class ContentItemsComponent implements OnInit {
         } else {
           this.totalContentsList = this.contents;
         }
+        this.loadingService.loadingDismiss();
         this.getFilterList();
+      }, err => {
+        this.loadingService.loadingDismiss();
       });
   }
   enterClick() {

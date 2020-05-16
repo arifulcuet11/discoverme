@@ -127,7 +127,6 @@ export class EditProfileComponent implements OnInit {
     this.camera.getPicture(this.options).then((imageData) => {
       this.fileService.resolveLocalFilesystemUrl(imageData).then((entry: FileEntry) => {
         entry.file(file => {
-          console.log(file);
           this.readFile(file);
         });
       });

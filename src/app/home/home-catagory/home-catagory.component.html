@@ -1,10 +1,20 @@
-
-<ion-row >
-  <ion-col size="4" *ngFor="let item of catagories">
-    <div style="text-align:center">
-      <span [routerLink]="['/content-type/type', item.id, languageId ===language.Bangla?item.banglaName : item.name]"
-       [ngStyle]="{'background-color': item.colorCode}" 
-       class="dot">{{languageId ===language.Bangla?item.banglaName : item.name}}</span>
-    </div>
-  </ion-col>
-</ion-row>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Catagories</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ion-row >
+      <ion-slides class="image-slider" [options]="slideOptsOne" loop="true">
+        <ion-slide *ngFor="let item of catagories">
+          <ion-col size="4" >
+            <div style="text-align:center">
+              <span [routerLink]="['/content-type/type', item.id, languageId ===language.Bangla?item.banglaName : item.name]"
+               [ngStyle]="{'background-color': item.colorCode}" 
+               class="dot">{{languageId ===language.Bangla?item.banglaName : item.name}}</span>
+            </div>
+          </ion-col>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+  </mat-card-content>
+</mat-card>

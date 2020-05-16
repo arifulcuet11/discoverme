@@ -18,7 +18,6 @@ export class LoadingService {
       // spinner: 'circles'
     }).then(a => {
       a.present().then(() => {
-        console.log('loading presented');
         if (!this.isLoading) {
           a.dismiss().then(() => console.log('abort laoding'));
         }

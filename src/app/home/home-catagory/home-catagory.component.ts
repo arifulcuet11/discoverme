@@ -12,6 +12,11 @@ import { Language } from 'src/app/left-menu/dailog-language/models/language';
 })
 export class HomeCatagoryComponent implements OnInit {
   catagories: Catagory[] = [];
+  slideOptsOne = {
+    initialSlide: 0,
+    slidesPerView: 3,
+    autoplay: true
+   };
   constructor( private catagoryService: CatagoryService,
                private storageService: StorageService,
                private communicationService: CommunicationService) { }

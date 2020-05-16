@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-back-button  defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>Log In</ion-title>
+    <ion-title class="header-text">Log In</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="container ml-2">
+  <!-- <div class="container ml-2">
     <form [formGroup]="loginForm">
       <ion-item lines="full">
         <ion-label position="floating">Email</ion-label>
@@ -27,6 +27,44 @@
         </ion-col>
       </ion-row>
     </form>
-  </div>
+  </div> -->
 
+  <ion-row style="margin-top: 10%;">
+    <ion-col offset="4" size="3">
+      <span style="font-size: 48px; color: whitesmoke;" class="material-icons">
+        enhanced_encryption
+        </span>
+    </ion-col>
+  </ion-row>
+  <form [formGroup]="loginForm">
+    <ion-row style="margin-top: 10%;">
+      <ion-col offset="1" size="10">
+        <mat-form-field  appearance="outline" >
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput type="email">
+          <button mat-icon-button matSuffix >
+          <mat-icon>email</mat-icon>
+          </button>
+        </mat-form-field>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 1%;">
+      <ion-col offset="1" size="10">
+        <mat-form-field  appearance="outline" >
+          <mat-label>Passord</mat-label>
+          <input matInput formControlName="password" [type]="newHide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="newHide = !newHide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="newHide">
+          <mat-icon>{{newHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 1%;">
+      <ion-col offset="1" size="10">
+        <ion-button  [disabled]="!loginForm.valid" (click)="login()" expand="full" color="danger">Login</ion-button>
+        <ion-button [routerLink]="['/login/registration']"   expand="full" color="primary">Registration</ion-button>
+        <!-- <a [routerLink]="['/login/forgot-password']" class="small-text text-center">Forgot Password?</a> -->
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>

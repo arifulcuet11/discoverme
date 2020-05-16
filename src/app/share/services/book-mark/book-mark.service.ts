@@ -15,5 +15,8 @@ export class BookMarkService {
   gets(index: number, size: number): Observable<any> {
     return this.http.get(this.routePrefix + '/gets?index=' + index + '&size=' + size);
   }
+  delete(id: number): Observable<any> {
+    return this.http.delete(this.routePrefix + '/delete/' + id);
+  }
 }
 

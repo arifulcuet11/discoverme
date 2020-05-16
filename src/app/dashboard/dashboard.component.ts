@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.activeRouter.params.subscribe((params: Params) => {
-      this.communicationService.showTopnavigationBar.emit(false);
+      this.communicationService.showTopnavigationBar.emit(true);
       const isLogin = this.storageService.getItem(this.storageService.IsLogin) === 'true' ? true : false;
       if (!isLogin) {
          this.route.navigate(['/login/display']);

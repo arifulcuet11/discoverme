@@ -1,17 +1,20 @@
-<ion-header [translucent]="true">
+<ion-header color="light" [translucent]="true">
   <ion-toolbar>
-    <ion-title>Bookmark</ion-title>
+    <ion-title class="header-text">Bookmark</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
+ 
   <super-tabs>
-    <super-tabs-toolbar slot="top" scrollable>
+    <super-tabs-toolbar color="light" slot="top" scrollable>
       <super-tab-button *ngFor="let cat of catagories">
         <ion-label> {{cat.banglaName}}</ion-label>    
       </super-tab-button>
     </super-tabs-toolbar>
     <super-tabs-container>
-
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
       <super-tab *ngFor="let cat of catagories">
         <ion-content>
           <div *ngFor="let item of bookMarkList | filter: 'catagoryId': cat.id  ; let i = index">
@@ -23,7 +26,9 @@
               </ion-avatar>
               <ion-label>
                 <h4><strong (click)="viewItem(item)">{{item.title}}</strong></h4>
-                <small>{{item.providerName ===null? 'Admin' : item.providerName}},<strong [ngStyle]="{'color': item.colorCode}">{{item.catagoryName}}</strong></small>
+                <small>{{item.providerName ===null? 'Admin' : item.providerName}},<strong [ngStyle]="{'color': item.colorCode}">{{item.catagoryName}}</strong>
+                  <button mat-button float-right><ion-icon color="danger" (click)="deleteBookMark(item.favoriteContentId)" name="trash-outline"></ion-icon></button>
+                </small>
                 <div> <!-- <button mat-button (*ngIf)="item?.contentLikeStatus == 1"><span class="material-icons">
                   favorite
                   </span>{{item.totalLike}}</button> -->
@@ -42,7 +47,7 @@
                     visibility
                     </span> {{item.totalRead}}</button></div>
               </ion-label>
-              <button mat-button float-right><ion-icon color="danger" name="trash-outline"></ion-icon></button>
+              
             </ion-item>
           </div>
         </ion-content>
