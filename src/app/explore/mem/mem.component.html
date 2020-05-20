@@ -1,13 +1,19 @@
-<ion-card>
-  <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" height="100px" width="100%" />
-  <ion-card-header>
-    <ion-card-title class="header-text">Funny Mems</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    <ion-slides class="image-slider" loop="true" slidesPerView="3">
-      <ion-slide *ngFor="let img of images">
-        <img (click)="viewPhoto('https://material.angular.io/assets/img/examples/shiba2.jpg')" src="https://material.angular.io/assets/img/examples/shiba2.jpg" class="thumb-img" photoViewer/>
-      </ion-slide>
-    </ion-slides>
-  </ion-card-content>
-</ion-card>
+
+   
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Mems</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <ion-slides class="image-slider" [options]="slideOptsOne" loop="true">
+          <ion-slide *ngFor="let item of memTypes">
+            <ion-card  [routerLink]="['/explore/mem/type', item.id, item.name]" class="mem-card">
+              <img style="height: 100px; width: 100px;" src="{{item.url}}" />
+              <ion-card-header>
+                <ion-card-subtitle>{{item.name}}</ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </mat-card-content>
+    </mat-card>

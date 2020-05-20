@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button  defaultHref="/explore"></ion-back-button>
+    </ion-buttons>
+    <ion-searchbar [(ngModel)]="text" (keyup.enter)="enterClick()"   [placeholder]="headerName"
+     class="search" animated></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid>
+    <ion-row >
+      <ion-col (click)="viewPhoto(item)" style="width: 100px;" *ngFor="let item of memsList" size="6">
+        <img src="{{item.url}}">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
