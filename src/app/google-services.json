@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "313141887863",
+    "firebase_url": "https://discoverme-595aa.firebaseio.com",
+    "project_id": "discoverme-595aa",
+    "storage_bucket": "discoverme-595aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313141887863:android:3c94cff4418e28fd5c5772",
+        "android_client_info": {
+          "package_name": "io.discoverme.arif"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313141887863-3tsivkjq33gkqp6ooq2884mmfakmvnjv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_oRHMCzXDEtL6K3bEShG88kABxnQvhJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313141887863-3tsivkjq33gkqp6ooq2884mmfakmvnjv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
