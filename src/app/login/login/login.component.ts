@@ -12,6 +12,7 @@ import { CommunicationService } from 'src/app/share/services/communication/commu
 import { Route } from '@angular/compiler/src/core';
 import { LoadingService } from 'src/app/share/services/loader/loader.service';
 import { MessageService } from 'src/app/share/services/message/message.service';
+import { FcmService } from 'src/app/share/services/firebase/fcm.service';
 
 @Component({
   selector: 'app-login',
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
     private activeRouter: ActivatedRoute,
     private loadingService: LoadingService,
     private messageService: MessageService,
+    private fcmService: FcmService,
     private communicationService: CommunicationService
   ) {}
 
@@ -57,6 +59,9 @@ export class LoginComponent implements OnInit {
       this.communicationService.loginLogoutInfo.emit(true);
       this.communicationService.showTopnavigationBar.emit(true);
       this.loadingService.loadingDismiss();
+
+      this.fcmService.getDeviceToken();
+      this.fcmService.getRefreshToken();
       setTimeout(() => {
         this.route.navigate(['/home']);
       }, 1000);

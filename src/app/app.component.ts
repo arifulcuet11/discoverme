@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './share/services/login/auth.service';
 import { StorageService } from './share/services/storage/storage.service';
 import { CommunicationService } from './share/services/communication/communication.service';
+import { FcmService } from './share/services/firebase/fcm.service';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private authService: AuthService,
     private storageService: StorageService,
-    private communicationService: CommunicationService
+    private communicationService: CommunicationService,
   ) {
     this.initializeApp();
   }
@@ -38,7 +39,7 @@ export class AppComponent implements OnInit {
       });
     }, 1000);
 
- 
+
     this.showBottomNav = this.communicationService.showTopnavigationBar.subscribe( res => {
              this.isBottomBarShow = res;
           });

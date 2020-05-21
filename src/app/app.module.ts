@@ -21,6 +21,7 @@ import { SuperTabsModule } from '@ionic-super-tabs/angular';
 import { File } from '@ionic-native/file/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { FCM } from '@ionic-native/fcm/ngx';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +51,7 @@ import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
     SplashScreen,
     File,
     Camera,
+    FCM,
     PhotoViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     httpInterceptProviders,
