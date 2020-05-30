@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'content-type', loadChildren: () => import('./content-type/content-type.module').then( m => m.ContentTypeModule)},
   { path: 'book-mark', loadChildren: () => import('./book-mark/book-mark.module').then( m => m.BookMarkModule)},
   { path: 'explore', loadChildren: () => import('./explore/explore.module').then( m => m.ExploreModule)},
+  { path: 'notification', loadChildren: () => import('./notification/notification.module').then( m => m.NotificationModule)},
   // { path: 'content-view', loadChildren: () => import('./content-view/content-view.module').then( m => m.ContentViewModule)},
   {
     path: 'login',

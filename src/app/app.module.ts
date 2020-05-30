@@ -22,6 +22,8 @@ import { File } from '@ionic-native/file/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { FCM } from '@ionic-native/fcm/ngx';
+import { UniqueDeviceID } from '@ionic-native/unique-device-id/ngx';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +54,7 @@ import { FCM } from '@ionic-native/fcm/ngx';
     File,
     Camera,
     FCM,
+    UniqueDeviceID ,
     PhotoViewer,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     httpInterceptProviders,
