@@ -1,3 +1,19 @@
-<p>
-  user-notification works!
-</p>
+<ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
+<ion-card *ngFor="let item of users">
+  <img class="cover-img" (click)="viewPhoto(item)" *ngIf="item.imageUrl" [src]="item.imageUrl" />
+  <ion-card-header>
+    <ion-card-subtitle>{{item.sendingDateTime | date}}</ion-card-subtitle>
+    <ion-card-title class="label-font">{{item.title}}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    {{item.message}}
+  </ion-card-content>
+</ion-card>
+<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content
+    loadingSpinner="bubbles"
+    loadingText="Loading more data...">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>

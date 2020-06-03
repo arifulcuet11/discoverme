@@ -5,6 +5,8 @@ import { MenuController } from '@ionic/angular';
 import { MenuList, Language } from './dailog-language/models/language';
 import { CommunicationService } from '../share/services/communication/communication.service';
 import { StorageService } from '../share/services/storage/storage.service';
+import { Router } from '@angular/router';
+import { MessageService } from '../share/services/message/message.service';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +20,9 @@ export class MenuComponent implements OnInit {
   menuList: any = [];
   constructor(public dialog: MatDialog,
               private menu: MenuController,
+              private router: Router,
               private communicationService: CommunicationService,
+              private  messagingService: MessageService,
               private storageService: StorageService) { }
 
   ngOnInit() {
@@ -38,9 +42,9 @@ export class MenuComponent implements OnInit {
       this.menuList = res === Language.Bangla ? new MenuList().getBanglaMenuList() : new MenuList().getEnglistMenuList();
     });
 
-    this.userlogin = this.communicationService.loginLogoutInfo.subscribe( res=>{
+    this.userlogin = this.communicationService.loginLogoutInfo.subscribe( res => {
        this.user = this.storageService.getItem(this.storageService.User);
-    })
+    });
   }
 
   openDialog(): void {
@@ -52,10 +56,22 @@ export class MenuComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
-  clickMenu(menuId: number) {
-    if (menuId === 5) {
-      this.menu.close();
+  clickMenu(menu: any) {
+    this.menu.close();
+    if (menu.code === 'M-01') {
+      this.router.navigate(['/home']);
+    } else if (menu.code === 'M-02') {
+      this.router.navigate(['/dashboard']);
+    } else if (menu.code === 'M-03') {
+      this.router.navigate(['/notification']);
+    } else if (menu.code === 'M-04') {
+      this.router.navigate(['/book-mark']);
+    } else if (menu.code === 'M-05') {
       this.openDialog();
+    } else if (menu.code === 'M-06') {
+       this.messagingService.presentToast('share me', 'black');
+    } else if (menu.code === 'M-07') {
+      this.messagingService.presentToast('Rated me', 'black');
     }
   }
 

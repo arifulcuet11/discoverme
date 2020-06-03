@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/share/services/login/auth.service';
 import { Route } from '@angular/compiler/src/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { CommunicationService } from 'src/app/share/services/communication/communication.service';
+import { MessageService } from 'src/app/share/services/message/message.service';
 
 @Component({
   selector: 'app-registration',
@@ -24,6 +25,7 @@ export class RegistrationComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
+      userType:[1]
     },
     { validator: this.passwordConfirming }
   );
@@ -32,6 +34,7 @@ export class RegistrationComponent implements OnInit {
     private fb: FormBuilder,
     private route: Router,
     private activeRouter: ActivatedRoute,
+    private messageService: MessageService,
     private communicationService: CommunicationService
   ) {}
 
@@ -53,7 +56,7 @@ export class RegistrationComponent implements OnInit {
         this.route.navigate(['/login']);
       },
       (err) => {
-        this.error = err.error.split(',');
+        this.messageService.presentToast(err.error, 'dark');
       }
     );
   }

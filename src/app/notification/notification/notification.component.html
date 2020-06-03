@@ -1,25 +1,27 @@
 <ion-header color="light" [translucent]="true">
   <ion-toolbar>
-    <ion-title class="header-text">Bookmark</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-text">Notification</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
- 
-  <super-tabs>
-    <super-tabs-toolbar color="light" slot="top" scrollable>
+  <super-tabs >
+    <super-tabs-toolbar color="light" slot="top">
       <super-tab-button>
-        <ion-label>General</ion-label>    
+        <ion-label class="header-text">General</ion-label>   
       </super-tab-button>
       <super-tab-button>
-        <ion-label>Own</ion-label>    
+        <ion-label class="header-text">Own</ion-label>    
       </super-tab-button>
     </super-tabs-toolbar>
     <super-tabs-container>
       <super-tab>
-        adsadsasdad
+        <app-general-notification></app-general-notification>
       </super-tab>
       <super-tab>
-        asdadad
+        <app-user-notification></app-user-notification>
       </super-tab>
     </super-tabs-container>
   </super-tabs>

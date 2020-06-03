@@ -85,7 +85,7 @@ export class MenuList {
          code: 'M-03'
        },
        {
-         name: 'Favorite',
+         name: 'Bookmark',
          id: 4,
          colorCode: 'red',
          icon: 'favorite',

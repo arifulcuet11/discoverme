@@ -5,7 +5,7 @@
     <div mat-line style="font-size: 10px;"> {{user.email}} </div>
   </mat-list-item>
   <mat-divider></mat-divider>
-  <mat-list-item class="menu-item">
+  <mat-list-item [routerLink]="['/notification']" class="menu-item">
     <mat-icon style="color:darkslategray;" mat-list-icon>notification_important</mat-icon>
     <div mat-line>Notification</div>
   </mat-list-item>
