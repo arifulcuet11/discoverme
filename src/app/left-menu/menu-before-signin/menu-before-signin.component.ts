@@ -52,20 +52,16 @@ export class MenuBeforeSigninComponent implements OnInit {
     });
   }
   clickMenu(menu: any) {
+    this.menu.close();
     if (menu.code === 'M-01') {
-       this.menu.close();
        this.router.navigate(['/home']);
      } else if (menu.code === 'M-08') {
-       this.menu.close();
        this.router.navigate(['/login']);
      } else if (menu.code === 'M-05') {
-       this.menu.close();
        this.openDialog();
     } else if (menu.code === 'M-03') {
       this.router.navigate(['/notification']);
-    } else if (menu.code === 'M-03') {
-      this.router.navigate(['/notification']);
-    }
+    } 
 
   }
 

@@ -131,11 +131,11 @@ export class MenuList {
        code: 'M-08'
      },
      {
-       name: 'Favorite',
+       name: 'Notification',
        id: 4,
        colorCode: 'red',
-       icon: 'favorite',
-       code: 'M-04'
+       icon: 'notification_important',
+       code: 'M-03'
      },
      {
        name: 'Language',
@@ -177,25 +177,11 @@ export class MenuList {
      code: 'M-08'
    },
    {
-     name: 'প্রিয়',
-     id: 4,
-     colorCode: 'red',
-     icon: 'favorite',
-     code: 'M-03'
-   },
-   {
      name: 'ভাষা',
      id: 5,
      colorCode: 'thistle',
      icon: 'language',
      code: 'M-05'
-   },
-   {
-     name: 'শেয়ার',
-     id: 6,
-     colorCode: 'indigo',
-     icon: 'share',
-     code: 'M-06'
    },
    {
      name: 'রেটেড',
